@@ -39,7 +39,7 @@ echo "CARTEIRA CONFIGURADA : \033[01;32m $wallet\033[0m   "
 sleep 1
 echo "\033[01;31m	 * Minerar Bitcoin  http://Zpool.ca \033[0m   \n"
 sleep 1
-echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
+echo "\033[44;1;37m Baixando Pacotes...     \033[0m "
 sleep 1
 sudo apt-get update >/dev/null
 sudo apt-get install git -y >/dev/null
@@ -50,7 +50,7 @@ git clone https://github.com/noncepool/cpuminer-yescrypt.git miner
 sleep 2
 clear
 
-echo "\033[44;1;37m Configurando e Compilando Recursos.....     \033[0m "
+echo "\033[44;1;37m Configurando e compilando recursos...     \033[0m "
 sleep 1
 cd miner 
 ./autogen.sh 
@@ -61,7 +61,7 @@ sudo mv minerd /usr/local/bin/
 clear
 sleep 1
 
-echo "\033[01;41mInicializando Mineração......     \033[0m \n "
+echo "\033[01;41mInicializando mineração...     \033[0m \n "
 sleep 1
 echo "\033[01;31mSCRIPT INICIA SCREEN AUTOMÁTICO..."
 sleep 3
