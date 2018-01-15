@@ -17,7 +17,7 @@ wallet=$1
 carteira_exemplo=U9i2KZHjV8dWff9HKurYYRkckLueYK96Qh4p1EDoEvdo8mpg
 if [ "$1" = ""  ]
 then
-echo "			\033[41;1;37m Minerar BITCOIN  $versão \033[0m "				
+echo "			\033[41;1;37m Minerar BTC $versao \033[0m "				
 sleep
 echo "\033[34m Forma de USO: \033[0m"
 echo "sudo sh $0 \033[31m Carteira de BTC \033[32m Número de núcleos \033[0m  \n "
@@ -33,7 +33,7 @@ echo "\033[01;33m===============================================================
 exit 0
 fi
 
-echo "			\033[41;1;37m Minerar BTC $versão \033[0m "	
+echo "			\033[41;1;37m Minerar BTC $versao \033[0m "	
 sleep 1
 echo "CARTEIRA CONFIGURADA : \033[01;32m $wallet\033[0m   "
 sleep 1
@@ -63,7 +63,7 @@ sleep 1
 
 echo "\033[01;41mInicializando Mineração......     \033[0m \n "
 sleep 1
-echo "\033[01;31mSCRIPT INICIA SCREEN AUTOMATICO..."
+echo "\033[01;31mSCRIPT INICIA SCREEN AUTOMÁTICO..."
 sleep 3
 echo "\033[01;32mETAPA [2/2] completa"
 sleep 3
