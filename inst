@@ -4,6 +4,7 @@ clear
 # SSH TLS
 # Miner por: noncepool
 #MINERADOR  ZPOOL BY: FENIX_LINUX
+
 bash=$(echo $BASH)
 
 if [ "$bash" = "/bin/bash" ]
