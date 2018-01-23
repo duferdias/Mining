@@ -6,7 +6,6 @@ clear
 #MINERADOR  ZPOOL BY: FENIX_LINUX
 bash=$(echo $BASH)
 
-
 if [ "$bash" = "/bin/bash" ]
 then
 exit 0
