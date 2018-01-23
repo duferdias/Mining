@@ -1,6 +1,5 @@
 #!/bin/bash
 # by Darkstilo & 8TH
-
 # Editado por Duferdias
 
 # [ PROXY STRATUM METHOD ]
