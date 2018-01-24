@@ -62,7 +62,7 @@ clear
 echo "\033[44;1;37mBaixando CPUMiner-OPT v3.8.0...\033[0m "
 sudo rm -r cpuminer-opt-3.8.0
 wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.0.tar.gz
-echo "\033[44;1;37m Extraindo CPUMiner-OPT v3.8.0... \033[0m "
+echo "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.0...\033[0m "
 tar -zxvf v3.8.0.tar.gz > /dev/null
 cd cpuminer-opt-3.8.0
 echo "\033[44;1;37mCompilando CPUMiner-OPT v3.8.0...(pode demorar um pouco)\033[0m "
