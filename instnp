@@ -1,9 +1,9 @@
 #!/bin/sh -
 clear
-# Copyright BYETFAST
-# SSH TLS
-# Miner por: noncepool
-#MINERADOR  ZPOOL BY: FENIX_LINUX
+# Miner por: JayDDee | CPUMiner-OPT v3.8.0
+# Créditos: AndreasBlk, BYETFAST, Darkstilo, FENIX_LINUX e SSH TLS
+# Editado por duferdias
+
 bash=$(echo $BASH)
 
 if [ "$bash" = "/bin/bash" ]
@@ -11,65 +11,76 @@ then
 exit 0
 fi
 
-core=$2
 wallet=$1
-carteira_exemplo=U9i2KZHjV8dWff9HKurYYRkckLueYK96Qh4p1EDoEvdo8mpg
+carteira_exemplo=YyyXXxx111YyyXXxx111YyyXXxx111YyyW
+
 if [ "$1" = ""  ]
 then
-echo "			\033[41;1;37m Minerar BTC $versao\033[0m "				
+echo "			\033[41;1;37m Minerar Bitcoin $versao \033[0m "				
 sleep
-echo "\033[34m Forma de USO: \033[0m"
-echo "sudo sh $0 \033[31m Carteira de BTC \033[32m Número de núcleos \033[0m  \n "
+echo "\033[34m Forma de uso: \033[0m"
+echo "sudo sh $0 \033[31m Carteira de Bitcoin \033[0m  \n "
 echo "\033[33m Exemplo:\033[0m"
-echo "sudo sh $0 \033[31m $carteira_exemplo \033[32m 2 \033[0m   \n"
-exit 0
-fi
-if [ "$2" = ""  ]
-then
-echo "\033[01;33m=====================================================================\033[01;0m"
-echo "\033[01;37;41mERROR:2 'ADICIONE O NÚMERO DE NÚCLEOS' ao final do arquivo.\033[0m"
-echo "\033[01;33m=====================================================================\033[01;0m"
+echo "sudo sh $0 \033[31m $carteira_exemplo \033[0m   \n"
 exit 0
 fi
 
-echo "			\033[41;1;37m Minerar BTC $versao\033[0m "	
+echo "			\033[41;1;37m Minerar Bitcoin $versao \033[0m "	
 sleep 1
 echo "CARTEIRA CONFIGURADA : \033[01;32m $wallet\033[0m   "
 sleep 1
-echo "\033[01;31m	 * Minerar Bitcoin  http://Zpool.ca \033[0m   \n"
+echo "\033[01;31m	  *Minerar Bitcoin  http://zpool.ca \033[0m   \n"
+
 sleep 1
-echo "\033[44;1;37m Baixando Pacotes... \033[0m "
-sleep 1
-sudo apt-get update >/dev/null
-sudo apt-get install git -y >/dev/null
-sudo apt-get install screen -y >/dev/null
-sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y >/dev/null
-sudo rm -r miner 
-git clone https://github.com/noncepool/cpuminer-yescrypt.git miner
+echo "\033[44;1;37mEste script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.0.\033[0m "
+echo "\033[44;1;37mAo término, a mineração iniciará automaticamente.\033[0m "
+echo "\033[44;1;37mAtualizando lista de pacotes...\033[0m "
+sudo apt-get update > /dev/null
 sleep 2
 clear
 
-echo "\033[44;1;37m Configurando e compilando recursos... \033[0m "
-sleep 1
-cd miner 
-./autogen.sh 
-./configure CFLAGS="-O3" 
-make 
-cd miner 
-sudo mv minerd /usr/local/bin/
+echo "\033[44;1;37mInstalando dependências...\033[0m "
+sudo apt-get install screen -y >/dev/null
+sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev make autoconf automake -y > /dev/null
+memsize=`free | awk '/Mem/ { print $2 }'`
+swapsize=`free | awk '/Swap/ { print $2 }'`
+if [ "$memsize" -lt "1000000" ]
+then
+ if [ "$swapsize" -eq "0" ]
+ then
+  echo "Foi detectado que você possui menos que 1GB de RAM"
+  echo "Será criada uma partição SWAP de 1GB para que o CPUMiner-OPT seja compilado com sucesso"
+  sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=1000 > /dev/null
+  sudo mkswap /var/swap.img > /dev/null
+  sudo chmod 600 /var/swap.img
+  sudo swapon /var/swap.img
+ fi
+fi
+sleep 2
 clear
-sleep 1
 
-echo "\033[01;41mInicializando mineração...\033[0m \n "
-sleep 1
+echo "\033[44;1;37mBaixando CPUMiner-OPT v3.8.0...\033[0m "
+sudo rm -r cpuminer-opt-3.8.0
+wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.0.tar.gz
+echo "\033[44;1;37m Extraindo CPUMiner-OPT v3.8.0... \033[0m "
+tar -zxvf v3.8.0.tar.gz > /dev/null
+cd cpuminer-opt-3.8.0
+echo "\033[44;1;37mCompilando CPUMiner-OPT v3.8.0...(pode demorar um pouco)\033[0m "
+./build.sh > /dev/null
+ln ./cpuminer ../cpuminer
+sleep 2
+clear
+
+echo "\033[01;32mEtapas concluídas com sucesso"
+sleep 3
 echo "\033[01;31mSCRIPT INICIA SCREEN AUTOMÁTICO..."
 sleep 3
-echo "\033[01;32mETAPA [2/2] completa"
-sleep 3
+echo "\033[01;41mInicializando mineração...\033[0m \n "
+sleep 1
 clear
-clear
-echo "\033[37;41m Sua mineração foi iniciada... Abrindo sessão em 3 segundos \033[01;0m \n"
-echo "\033[37;41m COMANDO [screen -x zpool] \033[0m"
+
+echo "\033[37;41mSua mineração foi iniciada... Abrindo sessão em 3 segundos\033[01;0m \n"
+echo "\033[37;41mCOMANDO [screen -x zpool]\033[0m"
 sleep 3
-sudo screen -dmS zpool minerd -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -t $core -R 30
+sudo screen -dmS zpool ./cpuminer -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet
 sleep 1
