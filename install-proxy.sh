@@ -1,6 +1,6 @@
 #!/bin/bash
 # by Darkstilo & 8TH
-# Editado por Duferdias
+# Editado por duferdias
 
 # [ PROXY STRATUM METHOD ]
 
@@ -55,11 +55,12 @@ sed -i "s/\"apiPassword\":.*/\"apiPassword\"\: \"${senha}\"\,/" stratum-proxy-ye
 # Executa o proxy
 sleep 1
 
-echo "\033[01; 41m Inicializando Servidor Proxy... \033[0m \n "
+echo "\033[01; 41m Inicializando Stratum Proxy... \033[0m \n "
 sleep 1
-echo "\033[01;31m SERVIDOR PROXY INICIA SCREEN AUTOMÁTICO... "
+echo "\033[01;31m STRATUM PROXY INICIA SCREEN AUTOMÁTICO... "
 sleep 3
-echo "\033[37;41m Servidor Proxy foi iniciado... Abrindo sessão em 3 segundos\033[01;0m \n"
+clear
+echo "\033[37;41m Stratum Proxy foi iniciado... Abrindo sessão em 3 segundos\033[01;0m \n"
 echo "\033[37;41m COMANDO [screen -x sproxy] \033[0m"
 sleep 3
 sudo screen -dmS sproxy java -jar stratum-proxy-0.8.1-malthraxcrypto.jar --conf-file=stratum-proxy-yescrypt.conf
