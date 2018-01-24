@@ -72,11 +72,13 @@ sleep 2
 clear
 
 echo "\033[01;32mEtapas concluídas com sucesso"
-sleep 3
-echo "\033[01;31mSCRIPT INICIA SCREEN AUTOMÁTICO..."
-sleep 3
+sleep 2
+clear
+
 echo "\033[01;41mInicializando mineração...\033[0m \n "
 sleep 1
+echo "\033[01;31mSCRIPT INICIA SCREEN AUTOMÁTICO..."
+sleep 3
 clear
 
 echo "\033[37;41mSua mineração foi iniciada... Abrindo sessão em 3 segundos\033[01;0m \n"
