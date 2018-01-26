@@ -66,7 +66,6 @@ sleep 2
 clear
 
 echo "\033[44;1;37mBaixando CPUMiner-OPT v3.8.0...\033[0m "
-sudo rm -r cpuminer-opt-3.8.0
 wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.0.tar.gz
 sleep 2
 clear
