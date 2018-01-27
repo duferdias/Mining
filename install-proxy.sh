@@ -3,6 +3,8 @@
 # Editado por duferdias
 
 # [ PROXY STRATUM METHOD FOR LINUX ]
+# Instalação e inicialização automática com o comando:
+# wget -O install-proxy.sh https://git.io/vNVRy && sh install-proxy.sh
 
 # [ VARIABLES ]
 carteira=
