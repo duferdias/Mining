@@ -74,7 +74,6 @@ sleep 3
 sudo screen -dmS sproxy java -jar stratum-proxy-0.8.1-malthraxcrypto.jar --conf-file=stratum-proxy-yescrypt.conf
 sleep 2
 clear
-
 echo "\033[37;41mStratum Proxy em execução. Para visualizar digite o comando abaixo:\033[01;0m \n"
 echo "\033[37;41mCOMANDO [screen -x sproxy]\033[0m"
 sleep 1
