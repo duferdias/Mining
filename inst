@@ -21,7 +21,7 @@ if [ "$1" = ""  ]
 then
 echo "		\033[41;1;37m Minerar Bitcoin com CPUMiner-OPT v3.8.0 \033[0m "				
 sleep
-echo "\033[34mForma de uso: \033[0m"
+echo "\033[34mForma de uso:\033[0m"
 echo "sudo sh $0 \033[31m Carteira de Bitcoin \033[0m \n "
 echo "\033[33mExemplo:\033[0m"
 echo "sudo sh $0 \033[31m $carteira_exemplo \033[0m \n"
