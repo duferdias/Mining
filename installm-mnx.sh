@@ -1,6 +1,6 @@
 #!/bin/sh -
 clear
-# Miner por: Racquemis | MxMiner v0.20.1
+# Miner por: Racquemis | MxMiner v0.17a
 # Script base: AndreasBlk, BYETFAST, Darkstilo, FENIX_LINUX e SSH TLS
 # Editado por duferdias
 
@@ -22,23 +22,23 @@ usuario_miner=wName
 
 if [ "$1" = ""  ] && [ "$2" = ""  ]
 then
-echo "		\033[41;1;37m Minerar Minexcoin com MxMiner v0.20.1 \033[0m"				
+echo "		\033[41;1;37m Minerar Minexcoin com MxMiner v0.17a \033[0m"				
 sleep
 echo "\033[34mForma de uso:\033[0m"
-echo "sudo sh $0 \033[31m Carteira de Minexcoin.\033[32mUsuário Minerador\033[0m \n"
+echo "sudo sh $0 \033[31m Carteira de Minexcoin\033[32m Usuário Minerador\033[0m \n"
 echo "\033[33mExemplo:\033[0m"
-echo "sudo sh $0 \033[31m $carteira_exemplo.\033[32m$usuario_miner\033[0m \n"
+echo "sudo sh $0 \033[31m $carteira_exemplo\033[32m $usuario_miner\033[0m \n"
 exit 0
 fi
 
-echo "		\033[41;1;37m Minerar Minexcoin com MxMiner v0.20.1 \033[0m"	
+echo "		\033[41;1;37m Minerar Minexcoin com MxMiner v0.17a \033[0m"	
 sleep 1
 echo "CARTEIRA E USUÁRIO MINER CONFIGURADOS:\033[01;32m $wallet.$workerName\033[0m"
 sleep 1
-echo "\033[01;31m Minerar Minexcoin com MxMiner v0.20.1  http://eu.minexpool.nl \033[0m \n"
+echo "\033[01;31m Minerar Minexcoin com MxMiner v0.17a  http://eu.minexpool.nl \033[0m \n"
 sleep 1
 
-echo "\033[44;1;37m    Este script irá baixar e executar o MxMiner v0.20.1.   \033[0m"
+echo "\033[44;1;37m    Este script irá baixar e executar o MxMiner v0.17a.    \033[0m"
 echo "\033[44;1;37m  Ao ser executado, a mineração iniciará automaticamente.  \033[0m "
 sleep 10
 clear
@@ -63,14 +63,14 @@ fi
 sleep 2
 clear
 
-echo "\033[44;1;37mBaixando MxMiner v0.20.1...\033[0m"
-wget -q https://github.com/duferdias/MxMiner/archive/v0.20.1.tar.gz
+echo "\033[44;1;37mBaixando MxMiner v0.17a...\033[0m"
+wget -q https://github.com/duferdias/MxMiner/archive/v0.17a.tar.gz
 sleep 2
 clear
 
-echo "\033[44;1;37mExtraindo MxMiner v0.20.1...\033[0m"
-tar -zxvf v0.20.1.tar.gz > /dev/null
-cd MxMiner-0.20.1
+echo "\033[44;1;37mExtraindo MxMiner v0.17a...\033[0m"
+tar -zxvf v0.17a.tar.gz > /dev/null
+cd MxMiner-0.17a
 sudo chmod +x mxminer 
 sleep 2
 clear
@@ -90,7 +90,7 @@ clear
 
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m"
 sleep 3
-sudo screen -dmS minexpool ./mxminer -l eu -u $wallet.$workerName -nf
+sudo screen -dmS minexpool ./mxminer -l eu -u $wallet.$workerName -z -nf 
 sleep 2
 clear
 
