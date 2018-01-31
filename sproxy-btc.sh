@@ -76,7 +76,7 @@ echo "\033[44;1;37m          NÃO FECHE A JANELA DO CONSOLE AGORA!          \033
 echo "\033[44;1;37m      Fechar console somente após a inicialização.      \033[0m \n"
 sleep 2
 echo " - Acompanhe o trabalho de seus mineradores no stratum proxy em seu navegador web!"
-echo " - Acesso com as opções: https://seudomínio-proxy:8888 ou https://seuIP-proxy:8888"
+echo " - Acesso com as opções: https://seudomínio-proxy:8888 ou https://seuIP-proxy:8888."
 echo " - Para autorizar o acesso entre com seu usuário e senha."
 sleep 18
 clear
