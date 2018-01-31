@@ -24,7 +24,7 @@ senha=
 # Obtém a carteira e a identificação do usuário minerador (PC/VPS)
 if [ -z "${uName_wName-}" ]; then
   echo
-  read -p "[read] Entre com a uName_wName: " uName_wName
+  read -p "[read] Entre com o uName_wName: " uName_wName
 fi
 # Obtém o nome do usuário
 if [ -z "${usuario-}" ]; then
