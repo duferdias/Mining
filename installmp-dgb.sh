@@ -54,7 +54,7 @@ clear
 
 echo "\033[44;1;37mInstalando dependências...\033[0m"
 sudo apt-get install screen -y > /dev/null
-sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev make autoconf automake -y > /dev/null
+sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev autoconf automake -y > /dev/null
 memsize=`free | awk '/Mem/ { print $2 }'`
 swapsize=`free | awk '/Swap/ { print $2 }'`
 if [ "$memsize" -lt "1000000" ]
