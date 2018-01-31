@@ -1,18 +1,18 @@
 #!/bin/sh -
 clear
-# Stratum Proxy by malthraxcrypto
+# Stratum Proxy by Stratehm
 # Script by darkstilo & 8TH
 # Editado por duferdias
 
 # [ PROXY STRATUM METHOD FOR LINUX ]
 
-# O Stratum Proxy by malthraxcrypto suporta até 256 mineradores e vários
+# O Stratum Proxy by Stratehm suporta até 256 mineradores e vários
 # algorítimos de mineração. Dentre eles os algorítimos: SHA256, Scrypt
 # e Yescrypt.
 
 # Com o script "sproxy-btc" é possível instalar, configurar e executar
-# o stratum proxy yescrypt para receber mineradores de BITCOIN e 
-# redirecioná-los para a zpool.ca.
+# o stratum proxy com o arquivo de configuração stratum-proxy-yescrypt
+# para receber mineradores de BITCOIN e redirecioná-los para a zpool.ca.
 
 # -------------
 # [ VARIABLES ]
@@ -51,13 +51,13 @@ sudo apt-get install nodejs -y
 sudo apt-get install maven -y
 
 # [ Install Stratum Proxy ]
-wget https://github.com/duferdias/stratum-proxy/archive/v0.8.1.2-malthraxcrypto.tar.gz -O v0.8.1.2-malthraxcrypto.tar.gz
-tar -xzvf v0.8.1.2-malthraxcrypto.tar.gz
-cd stratum-proxy-0.8.1.2-malthraxcrypto
+wget https://github.com/duferdias/stratum-proxy/archive/v0.8.1.tar.gz -O v0.8.1.tar.gz
+tar -xzvf v0.8.1.tar.gz
+cd stratum-proxy-0.8.1
 mvn clean package
 cd target
 
-wget https://github.com/duferdias/stratum-proxy/releases/download/v0.8.1.2-malthraxcrypto/stratum-proxy-yescrypt.conf -O stratum-proxy-yescrypt.conf
+wget https://github.com/duferdias/stratum-proxy/releases/download/v0.8.1/stratum-proxy-yescrypt.conf -O stratum-proxy-yescrypt.conf
 
 # Convert format dos2unix
 # awk '{printf "%s\r\n", $0}' stratum-proxy-yescrypt.conf
@@ -84,7 +84,7 @@ clear
 # [ Run Stratum Proxy ]
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m "
 sleep 3
-sudo screen -dmS sproxy java -jar stratum-proxy-0.8.1-malthraxcrypto.jar --conf-file=stratum-proxy-yescrypt.conf
+sudo screen -dmS sproxy java -jar stratum-proxy-0.8.1-Stratehm.jar --conf-file=stratum-proxy-yescrypt.conf
 sleep 2
 clear
 echo "\033[37;41mStratum Proxy em execução. Para visualizar digite o comando abaixo:\033[01;0m \n"
