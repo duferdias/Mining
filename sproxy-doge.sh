@@ -1,6 +1,6 @@
 #!/bin/sh -
 clear
-# Stratum Proxy by Stratehm
+# Stratum Proxy by Stratehm & malthraxcrypto
 # Script by darkstilo & 8TH
 # Editado por duferdias
 
@@ -76,15 +76,15 @@ echo "\033[44;1;37m          NÃO FECHE A JANELA DO CONSOLE AGORA!          \033
 echo "\033[44;1;37m      Fechar console somente após a inicialização.      \033[0m \n"
 sleep 2
 echo " - Acompanhe o trabalho de seus mineradores no stratum proxy em seu navegador web!"
-echo " - Acesso com as opções: https://seudomínio-proxy:8888 ou https://seuIP-proxy:8888"
-echo " - Para autorizar o acesso entre com seu usuário e senha"
+echo " - Acesso com as opções: https://seudomínio-proxy:8888 ou https://seuIP-proxy:8888."
+echo " - Para autorizar o acesso entre com seu usuário e senha."
 sleep 18
 clear
 
 # [ Run Stratum Proxy ]
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m "
 sleep 3
-sudo screen -dmS sproxy java -jar stratum-proxy-0.8.1-Stratehm.jar --conf-file=stratum-proxy-yescrypt.conf
+sudo screen -dmS sproxy java -jar stratum-proxy-0.8.1-malthraxcrypto.jar --conf-file=stratum-proxy-yescrypt.conf
 sleep 2
 clear
 echo "\033[37;41mStratum Proxy em execução. Para visualizar digite o comando abaixo:\033[01;0m \n"
