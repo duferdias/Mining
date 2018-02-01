@@ -105,10 +105,10 @@ clear
 
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m"
 sleep 3
-sudo screen -dmS misosisp ./cpuminer -a yescryptr16 -o stratum+tcp://$ipdomain:16012 -u $WLogin_WName -p x
+sudo screen -dmS misosi-sp ./cpuminer -a yescryptr16 -o stratum+tcp://$ipdomain:16012 -u $WLogin_WName -p x
 sleep 2
 clear
 
 echo "\033[37;41mSua mineração foi iniciada! Para visualizar o processo digite o comando abaixo:\033[01;0m \n"
-echo "\033[37;41mCOMANDO [screen -x misosisp]\033[0m"
+echo "\033[37;41mCOMANDO [screen -x misosi-sp]\033[0m"
 sleep 1
