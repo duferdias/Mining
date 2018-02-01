@@ -85,7 +85,7 @@ echo "\033[44;1;37m     Feche a janela do web-console ou de seu aplicativo  \033
 echo "\033[44;1;37m  para acesso remoto somente após o início da mineração. \033[0m \n"
 sleep 3
 echo "Acompanhe o status de sua mineração em: http://eu.minexpool.nl/workers/$wallet"
-sleep 15
+sleep 12
 clear
 
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m"
