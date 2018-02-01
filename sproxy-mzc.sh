@@ -21,20 +21,20 @@ usuario=
 senha=
 
 # [ SCRIPT ]
-# Obtém a carteira
+# Obtém a carteira de MazaCoin
 if [ -z "${carteira-}" ]; then
   echo
-  read -p "[read] Entre com a carteira: " carteira
+  read -p "Entre com a carteira de MazaCoin: " carteira
 fi
-# Obtém o nome do usuário
+# Obtém o nome de usuário para o Stratum-Proxy
 if [ -z "${usuario-}" ]; then
   echo
-  read -p "[read] Entre com o nome do usuário: " usuario
+  read -p "Entre com um nome de usuário para o Stratum-Proxy: " usuario
 fi
-# Obtém a senha do usuário
+# Obtém a senha para o usuário do Stratum-Proxy
 if [ -z "${senha-}" ]; then
   echo
-  read -p "[read] Entre com a senha do usuário: " senha
+  read -p "Entre com uma senha para o usuário do Stratum-Proxy: " senha
 fi
 
 # [ Install JDK, Extras, Packages and Dependencies ]
