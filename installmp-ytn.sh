@@ -20,9 +20,9 @@ exit 0
 fi
 
 ipdomain=$1
-uName_wName=$2
+WLogin_WName=$2
 IPdominio_exemplo=meudominio.web
-uName_wName_exemplo=devminer.dvmr
+WLogin_WName_exemplo=devminer.dvmr
 
 if [ "$1" = ""  ] && [ "$2" = ""  ]
 then
@@ -31,13 +31,13 @@ sleep
 echo "\033[34mForma de uso:\033[0m"
 echo "sudo sh $0 \033[31m IP ou Domínio\033[32m usuário.id-minerador\033[0m \n"
 echo "\033[33mExemplo:\033[0m"
-echo "sudo sh $0 \033[31m $IPdominio_exemplo\033[32m $uName_wName_exemplo\033[0m \n"
+echo "sudo sh $0 \033[31m $IPdominio_exemplo\033[32m $WLogin_WName_exemplo\033[0m \n"
 exit 0
 fi
 
 echo "		\033[41;1;37m Minerar Yenten com CPUMiner-OPT v3.8.0 via Stratum Proxy \033[0m"	
 sleep 1
-echo "DOMÍNIO, USUÁRIO E ID-MINERADOR CONFIGURADOS:\033[01;32m $ipdomain $uName_wName\033[0m"
+echo "DOMÍNIO, USUÁRIO E ID-MINERADOR CONFIGURADOS:\033[01;32m $ipdomain $WLogin_WName\033[0m"
 sleep 1
 echo "\033[01;31m Minerar Yenten com CPUMiner-OPT v3.8.0 via Stratum Proxy  https://ytn.misosi.ru \033[0m \n"
 sleep 1
@@ -105,7 +105,7 @@ clear
 
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m"
 sleep 3
-sudo screen -dmS misosisp ./cpuminer -a yescryptr16 -o stratum+tcp://$ipdomain:16012 -u $uName_wName -p x
+sudo screen -dmS misosisp ./cpuminer -a yescryptr16 -o stratum+tcp://$ipdomain:16012 -u $WLogin_WName -p x
 sleep 2
 clear
 
