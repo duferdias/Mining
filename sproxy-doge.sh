@@ -21,20 +21,20 @@ usuario=
 senha=
 
 # [ SCRIPT ]
-# Obtém a carteira
+# Obtém a carteira de Dogecoin
 if [ -z "${carteira-}" ]; then
   echo
-  read -p "[read] Entre com a carteira: " carteira
+  read -p "Entre com a carteira de Dogecoin: " carteira
 fi
-# Obtém o nome do usuário
+# Obtém o nome de usuário para o Stratum-Proxy
 if [ -z "${usuario-}" ]; then
   echo
-  read -p "[read] Entre com o nome do usuário: " usuario
+  read -p "Entre com um nome de usuário para o Stratum-Proxy: " usuario
 fi
-# Obtém a senha do usuário
+# Obtém a senha para o usuário do Stratum-Proxy
 if [ -z "${senha-}" ]; then
   echo
-  read -p "[read] Entre com a senha do usuário: " senha
+  read -p "Entre com uma senha para o usuário do Stratum-Proxy: " senha
 fi
 
 # [ Install JDK, Extras, Packages and Dependencies ]
@@ -76,7 +76,7 @@ echo "\033[44;1;37m          NÃO FECHE A JANELA DO CONSOLE AGORA!          \033
 echo "\033[44;1;37m      Fechar console somente após a inicialização.      \033[0m \n"
 sleep 2
 echo " - Acompanhe o trabalho de seus mineradores no stratum proxy em seu navegador web!"
-echo " - Acesso com as opções: https://seudomínio-proxy:8888 ou https://seuIP-proxy:8888."
+echo " - Acesso com as opções: https://seudominio-proxy:8888 ou https://seuIP-proxy:8888."
 echo " - Para autorizar o acesso entre com seu usuário e senha."
 sleep 18
 clear
