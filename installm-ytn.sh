@@ -15,8 +15,8 @@ then
 exit 0
 fi
 
-uName_wName=$1
-uName_wName_exemplo=devminer.dvmr
+WLogin_WName=$1
+WLogin_WName_exemplo=devminer.dvmr
 
 if [ "$1" = ""  ]
 then
@@ -25,13 +25,13 @@ sleep
 echo "\033[34mForma de uso:\033[0m"
 echo "sudo sh $0 \033[31m usuário.id-minerador\033[0m \n"
 echo "\033[33mExemplo:\033[0m"
-echo "sudo sh $0 \033[31m $uName_wName_exemplo\033[0m \n"
+echo "sudo sh $0 \033[31m $WLogin_WName_exemplo\033[0m \n"
 exit 0
 fi
 
 echo "		\033[41;1;37m Minerar Yenten com CPUMiner-OPT v3.8.0 \033[0m"	
 sleep 1
-echo "USUÁRIO E ID-MINERADOR CONFIGURADOS:\033[01;32m $uName_wName\033[0m"
+echo "USUÁRIO E ID-MINERADOR CONFIGURADOS:\033[01;32m $WLogin_WName\033[0m"
 sleep 1
 echo "\033[01;31m Minerar Yenten com CPUMiner-OPT v3.8.0  https://ytn.misosi.ru \033[0m \n"
 sleep 1
@@ -99,7 +99,7 @@ clear
 
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m"
 sleep 3
-sudo screen -dmS misosi ./cpuminer -a yescryptr16 -o stratum+tcp://stratum.misosi.ru:16012 -u $uName_wName -p x
+sudo screen -dmS misosi ./cpuminer -a yescryptr16 -o stratum+tcp://stratum.misosi.ru:16012 -u $WLogin_WName -p x
 sleep 2
 clear
 
