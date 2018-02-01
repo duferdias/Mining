@@ -16,25 +16,25 @@ clear
 
 # -------------
 # [ VARIABLES ]
-uName_wName=
+WLogin_WName=
 usuario=
 senha=
 
 # [ SCRIPT ]
-# Obtém a carteira e a identificação do usuário minerador (PC/VPS)
-if [ -z "${uName_wName-}" ]; then
+# Obtém o Nome e a ID do usuário minerador de Yenten na forma: <WorkerLogin.WorkerName>
+if [ -z "${WLogin_WName-}" ]; then
   echo
-  read -p "[read] Entre com o uName_wName: " uName_wName
+  read -p "Entre com o Nome e a ID do usuário minerador de YTN na forma <WorkerLogin.WorkerName>: " WLogin_WName
 fi
-# Obtém o nome do usuário
+# Obtém o nome de usuário para o Stratum-Proxy
 if [ -z "${usuario-}" ]; then
   echo
-  read -p "[read] Entre com o nome do usuário: " usuario
+  read -p "Entre com um nome de usuário para o Stratum-Proxy: " usuario
 fi
-# Obtém a senha do usuário
+# Obtém a senha para o usuário do Stratum-Proxy
 if [ -z "${senha-}" ]; then
   echo
-  read -p "[read] Entre com a senha do usuário: " senha
+  read -p "Entre com uma senha para o usuário do Stratum-Proxy: " senha
 fi
 
 # [ Install JDK, Extras, Packages and Dependencies ]
@@ -62,7 +62,7 @@ wget https://github.com/duferdias/stratum-proxy/releases/download/v0.8.1/stratum
 # Convert format dos2unix
 # awk '{printf "%s\r\n", $0}' stratum-proxy-yescryptr16.conf
 # Insere as variáveis
-sed -i "s/\"user\" :.*/\"user\" \: \"${uName_wName}\"\,/" stratum-proxy-yescryptr16.conf
+sed -i "s/\"user\" :.*/\"user\" \: \"${WLogin_WName}\"\,/" stratum-proxy-yescryptr16.conf
 sed -i "s/\"apiUser\":.*/\"apiUser\"\: \"${usuario}\"\,/" stratum-proxy-yescryptr16.conf
 sed -i "s/\"apiPassword\":.*/\"apiPassword\"\: \"${senha}\"\,/" stratum-proxy-yescryptr16.conf
 
@@ -75,7 +75,7 @@ echo "\033[44;1;37m          NÃO FECHE A JANELA DO CONSOLE AGORA!          \033
 echo "\033[44;1;37m      Fechar console somente após a inicialização.      \033[0m \n"
 sleep 2
 echo " - Acompanhe o trabalho de seus mineradores no stratum proxy em seu navegador web!"
-echo " - Acesso com as opções: https://seudomínio-proxy:8888 ou https://seuIP-proxy:8888."
+echo " - Acesso com as opções: https://seudominio-proxy:8888 ou https://seuIP-proxy:8888."
 echo " - Para autorizar o acesso entre com seu usuário e senha."
 sleep 18
 clear
