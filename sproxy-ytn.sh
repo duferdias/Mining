@@ -17,6 +17,7 @@ clear
 # -------------
 # [ VARIABLES ]
 WLogin_WName=
+passwordMiner=
 usuario=
 senha=
 
@@ -25,6 +26,11 @@ senha=
 if [ -z "${WLogin_WName-}" ]; then
   echo
   read -p "Entre com o Nome e a ID do usuário minerador de YTN na forma <WorkerLogin.WorkerName>: " WLogin_WName
+fi
+# Obtém a senha (password) do usuário minerador de Yenten definida na Pool
+if [ -z "${passwordMiner-}" ]; then
+  echo
+  read -p "Entre com a senha (password) definida na Pool para o usuário minerador: " passwordMiner
 fi
 # Obtém o nome de usuário para o Stratum-Proxy
 if [ -z "${usuario-}" ]; then
@@ -63,6 +69,7 @@ wget https://github.com/duferdias/stratum-proxy/releases/download/v0.8.1/stratum
 # awk '{printf "%s\r\n", $0}' stratum-proxy-yescryptr16.conf
 # Insere as variáveis
 sed -i "s/\"user\" :.*/\"user\" \: \"${WLogin_WName}\"\,/" stratum-proxy-yescryptr16.conf
+sed -i "s/\"password\" :.*/\"password\" \: \"${passwordMiner}\"\,/" stratum-proxy-yescryptr16.conf
 sed -i "s/\"apiUser\":.*/\"apiUser\"\: \"${usuario}\"\,/" stratum-proxy-yescryptr16.conf
 sed -i "s/\"apiPassword\":.*/\"apiPassword\"\: \"${senha}\"\,/" stratum-proxy-yescryptr16.conf
 
