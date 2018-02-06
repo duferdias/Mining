@@ -6,7 +6,7 @@ clear
 
 # [ PROXY STRATUM METHOD FOR LINUX ]
 
-# O Stratum Proxy by Stratehm suporta até 256 mineradores e vários
+# O Stratum Proxy by Stratehm suporta até 65536 mineradores e vários
 # algorítimos de mineração. Dentre eles os algorítimos: SHA256, Scrypt
 # e Yescrypt.
 
