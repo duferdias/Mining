@@ -15,6 +15,22 @@ clear
 # para receber mineradores de YENTEN e redirecioná-los para a ytn.misosi.ru.
 
 # -------------
+echo "\033[44;1;37mLiberando portas no firewall iptables...aguarde...\033[0m"
+sleep 5
+sudo iptables -A INPUT -p tcp --dport 3333 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 3433 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 6233 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8233 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8888 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 16011 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 16012 -j ACCEPT
+sleep 1
+clear
+echo "\033[44;1;37mPortas liberadas com sucesso.\033[0m"
+sleep 5
+clear
+
+# -------------
 # [ VARIABLES ]
 WLogin_WName=
 passwordMiner=
