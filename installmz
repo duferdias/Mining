@@ -20,7 +20,7 @@ symbol=$2
 carteira_exemplo=YyyXXxx111YyyXXxx111YyyXXxx111YyyW
 simbolo_exemplo=BTC
 
-if [ "$1" = ""  ] && if [ "$2" = ""  ]
+if [ "$1" = ""  ] && [ "$2" = ""  ]
 then
 echo "		\033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.0.1 \033[0m"				
 sleep
