@@ -24,6 +24,7 @@ clear
 echo "\033[44;1;37mLiberando portas no firewall iptables...aguarde...\033[0m"
 sleep 5
 sudo iptables -A INPUT -p tcp --dport 3333 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 3334 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 3433 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 6233 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 8233 -j ACCEPT
