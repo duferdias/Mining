@@ -25,9 +25,9 @@ then
 echo "       \033[41;1;37m Minerar Sigil com CPUMiner-OPT v3.8.0.1 \033[0m"				
 sleep
 echo "\033[34mForma de uso:\033[0m"
-echo "sudo sh $0\033[31m Usuário.id-minerador\033[32m Senha do minerador\033[0m \n"
+echo "sudo sh $0 \033[31m Usuário.id-minerador\033[32m Senha do minerador\033[0m \n"
 echo "\033[34mExemplo:\033[0m"
-echo "sudo sh $0\033[31m $WLogin_WName_exemplo\033[32m $password_exemplo\033[0m \n"
+echo "sudo sh $0 \033[31m $WLogin_WName_exemplo\033[32m $password_exemplo\033[0m \n"
 echo "\033[44;1;37m Observação:                                         \033[0m" 
 echo "\033[44;1;37m O cpuminer-opt identifica automaticamente o tipo de \033[0m"
 echo "\033[44;1;37m CPU e habilita todos os núcleos disponíveis para a  \033[0m"
