@@ -5,15 +5,13 @@ clear
 # Editado por duferdias
 
 # Este script foi desenvolvido para execução em ambiente Linux:
-# - Configura mineração direta na Pool escolhida;
 # - Configura a mineração de modo que os hashes são enviados à 
 #   Pool através de um servidor proxy;
 #   - A mineração funciona em todas as pools que usam os 
 #     algorítimos suportados pelo cpuminer-opt v3.8.0 e o
 #     hashrate medidos em hashes/s;
-# - A definição da quantidade de núcleos com -t <cores> é opcional.
-#   O cpuminer-opt utilizará todos os núcleos disponíveis se o
-#   parametro -t <cores> não for inserido.
+# - O cpuminer-opt identifica automaticamente o tipo de CPU e
+#   e habilita todos os núcleos disponíveis para a mineração.
 
 # Este script também pode ser executado automaticamente junto
 # com a inicialização do sistema.
@@ -26,36 +24,31 @@ exit 0
 fi
 
 algorithm=$1
-stratumM_options=$2
+stratumM=$2
+algo_exemplo= yescrypt
+strat_exemplo= minerxyz.com:6233
 
 if [ "$1" = ""  ] && [ "$2" = ""  ]
 then
-echo "		   \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.0 \033[0m"				
+echo "     \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.0 via Stratum Proxy \033[0m"				
 sleep
-echo "\033[34mFormas de uso:\033[0m"
-echo "sudo sh $0 \033[32m <Algorítimo> <Stratum(pool ou proxy) e porta(pool)> <carteira ou wLogin.wName> <símbolo ou senha> <núcleos>\033[0m \n"
-echo "\033[44;1;37m Observação:                                             \033[0m" 
-echo "\033[44;1;37m A definição da quantidade de núcleos com -t <cores>     \033[0m"
-echo "\033[44;1;37m é opcional. O cpuminer-opt utilizará todos os núcleos   \033[0m"
-echo "\033[44;1;37m disponíveis se o parâmetro -t <cores> não for inserido. \033[0m"
-echo "\033[44;1;37m Se a mineração for executada via proxy basta somente    \033[0m"
-echo "\033[44;1;37m inserir o Algorítimo e o Domínio ou IP do proxy com a   \033[0m"
-echo "\033[44;1;37m porta da pool conforme exemplo 3.                       \033[0m"
-echo "\033[44;1;37m Para minerar via proxy é necessário que exista um       \033[0m"
-echo "\033[44;1;37m Stratum Proxy em funcionamento e configurado com as     \033[0m"
-echo "\033[44;1;37m informações da pool e conta do usuário.                 \033[0m \n"
-echo "\033[34m*Exemplo 1 - ZPOOL.CA - Mineração direta:\033[0m"
-echo "sudo sh $0 \033[32m yescrypt mine.zpool.ca:6233 -u DBPkvRnTtHS84tSTyramL4CsYQcirxxxxX -p c=DOGE -t 2\033[0m \n"
-echo "\033[34m*Exemplo 2 - YTN.MISOSI.RU - Mineração direta:\033[0m"
-echo "sudo sh $0 \033[32m yescryptr16 stratum.misosi.ru:16012 -u wminer.M1 -p x -t 2\033[0m \n"
-echo "\033[34m*Exemplo 3 - Mineração via Stratum Proxy:\033[0m"
-echo "sudo sh $0 \033[32m yescrypt minerxyz.com:6233 -t 2\033[0m \n"
+echo "\033[34mForma de uso:\033[0m"
+echo "sudo sh $0\033[31m Algorítimo\033[32m Stratum Proxy e Porta(pool)\033[0m \n"
+echo "\033[34mExemplo:\033[0m"
+echo "sudo sh $0\033[31m $algo_exemplo\033[32m $strat_exemplo\033[0m \n"
+echo "\033[44;1;37m Observação:                                         \033[0m" 
+echo "\033[44;1;37m O cpuminer-opt identifica automaticamente o tipo de \033[0m"
+echo "\033[44;1;37m CPU e habilita todos os núcleos disponíveis para a  \033[0m"
+echo "\033[44;1;37m mineração.                                          \033[0m"
+echo "\033[44;1;37m Para minerar via proxy é necessário que exista um   \033[0m"
+echo "\033[44;1;37m Stratum Proxy em funcionamento e configurado com as \033[0m"
+echo "\033[44;1;37m informações da pool e conta do usuário.             \033[0m \n"
 exit 0
 fi
 
-echo "		   \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.0 \033[0m"	
+echo "     \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.0 via Stratum Proxy \033[0m"	
 sleep 1
-echo "PARÂMETROS CONFIGURADOS:\033[01;32m $algorithm $stratumM_options\033[0m \n"
+echo "PARÂMETROS CONFIGURADOS:\033[01;32m $algorithm $stratumM\033[0m \n"
 sleep 1
 echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.0.  \033[0m"
 echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
@@ -69,7 +62,7 @@ clear
 
 echo "\033[44;1;37mInstalando dependências...\033[0m"
 sudo apt-get install screen -y > /dev/null
-sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev gcc autoconf automake -y > /dev/null
+sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev autoconf automake -y > /dev/null
 memsize=`free | awk '/Mem/ { print $2 }'`
 swapsize=`free | awk '/Swap/ { print $2 }'`
 if [ "$memsize" -lt "1000000" ]
@@ -117,7 +110,7 @@ clear
 
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m"
 sleep 3
-sudo screen -dmS mining ./cpuminer -a $algorithm -o stratum+tcp://$stratumM_options
+sudo screen -dmS mining ./cpuminer -a $algorithm -o stratum+tcp://$stratumM
 sleep 2
 clear
 
