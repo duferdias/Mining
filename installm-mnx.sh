@@ -35,7 +35,7 @@ echo "		\033[41;1;37m Minerar Minexcoin com MxMiner v0.17a \033[0m"
 sleep 1
 echo "CARTEIRA E USUÁRIO MINER CONFIGURADOS:\033[01;32m $wallet.$workerName\033[0m"
 sleep 1
-echo "\033[01;31m Minerar Minexcoin com MxMiner v0.17a  http://eu.minexpool.nl \033[0m \n"
+echo "\033[01;31mMinerar Minexcoin com MxMiner v0.17a  http://eu.minexpool.nl \033[0m \n"
 sleep 1
 
 echo "\033[44;1;37m    Este script irá baixar e executar o MxMiner v0.17a.    \033[0m"
