@@ -39,10 +39,10 @@ echo "       \033[41;1;37m Minerar Yenten com CPUMiner-OPT v3.8.0.1 \033[0m"
 sleep 1
 echo "PARÂMETROS CONFIGURADOS:\033[01;32m $WLogin_WName $password\033[0m"
 sleep 1
-echo "\033[01;31m Minerar Yenten com CPUMiner-OPT v3.8.0.1  https://ytn.misosi.ru \033[0m \n"
+echo "\033[01;31mMinerar Yenten com CPUMiner-OPT v3.8.0.1  https://ytn.misosi.ru\033[0m \n"
 sleep 1
 echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.0.1.  \033[0m"
-echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
+echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.            \033[0m"
 sleep 10
 clear
 
