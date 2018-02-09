@@ -24,7 +24,7 @@ exit 0
 fi
 
 algorithm=$1
-stratumM=$2
+stratump_tcp=$2
 algo_exemplo=yescrypt
 strat_exemplo=minerxyz.com:6233
 
@@ -48,7 +48,7 @@ fi
 
 echo "     \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.0.1 via Stratum Proxy \033[0m"	
 sleep 1
-echo "PARÂMETROS CONFIGURADOS:\033[01;32m $algorithm $stratumM\033[0m \n"
+echo "PARÂMETROS CONFIGURADOS:\033[01;32m $algorithm $stratump_tcp\033[0m \n"
 sleep 1
 echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.0.1.  \033[0m"
 echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
@@ -110,7 +110,7 @@ clear
 
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m"
 sleep 3
-sudo screen -dmS mining ./cpuminer -a $algorithm -o stratum+tcp://$stratumM
+sudo screen -dmS mining ./cpuminer -a $algorithm -o stratum+tcp://$stratump_tcp
 sleep 2
 clear
 
