@@ -43,28 +43,28 @@ then
 exit 0
 fi
 
-if [ $1 == "altpools" ]
+if [ "$1" -eq "altpools" ]
 then
   stratum_tcp=sv1.altpools.com:3334
-elif [ $1 == "niobiopool" ]
+elif [ "$1" -eq "niobiopool" ]
 then
   stratum_tcp=niobiopool.com.br:3331
-elif [ $1 == "niobiocashbb" ]
+elif [ "$1" -eq "niobiocashbb" ]
 then
   stratum_tcp=niobiocash.bytecoinbrasil.net:3334
-  elif [ $1 == "selvahost" ]
+  elif [ "$1" -eq "selvahost" ]
 then
   stratum_tcp=nb.selvahost.com.br:3333
-  elif [ $1 == "ciapool" ]
+  elif [ "$1" -eq "ciapool" ]
 then
   stratum_tcp=nbr.ciapool.com:3333
-  elif [ $1 == "poolddns" ]
+  elif [ "$1" -eq "poolddns" ]
 then
   stratum_tcp=nbr-pool.ddns.net:3333
-  elif [ $1 == "stminerpool" ]
+  elif [ "$1" -eq "stminerpool" ]
 then
   stratum_tcp=stminerpool.com.br:3334
-  elif [ $1 == "4miner" ]
+  elif [ "$1" -eq "4miner" ]
 then
   stratum_tcp=us-nbr.4miner.me:3334
 fi
