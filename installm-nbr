@@ -45,28 +45,28 @@ fi
 
 if [ "$1" = "altpools" ]
 then
-	stratum_tcp=sv1.altpools.com:3334
+    stratum_tcp=sv1.altpools.com:3334
 elif [ "$1" = "niobiopool" ]
 then
-	stratum_tcp=niobiopool.com.br:3331
+    stratum_tcp=niobiopool.com.br:3331
 elif [ "$1" = "niobiocashbb" ]
 then
-	stratum_tcp=niobiocash.bytecoinbrasil.net:3334
+    stratum_tcp=niobiocash.bytecoinbrasil.net:3334
 elif [ "$1" = "selvahost" ]
 then
-	stratum_tcp=nb.selvahost.com.br:3333
+    stratum_tcp=nb.selvahost.com.br:3333
 elif [ "$1" = "ciapool" ]
 then
-	stratum_tcp=nbr.ciapool.com:3333
+    stratum_tcp=nbr.ciapool.com:3333
 elif [ "$1" = "poolddns" ]
 then
-	stratum_tcp=nbr-pool.ddns.net:3333
+    stratum_tcp=nbr-pool.ddns.net:3333
 elif [ "$1" = "stminerpool" ]
 then
-	stratum_tcp=stminerpool.com.br:3334
+    stratum_tcp=stminerpool.com.br:3334
 elif [ "$1" = "4miner" ]
 then
-	stratum_tcp=us-nbr.4miner.me:3334
+    stratum_tcp=us-nbr.4miner.me:3334
 fi
 wallet=$2
 stratum_tcp_exemplo=stratum.miningpool:9999
