@@ -45,28 +45,28 @@ fi
 
 if [ "$1" = "altpools" ]
 then
-  stratum_tcp=sv1.altpools.com:3334
+	stratum_tcp=sv1.altpools.com:3334
 elif [ "$1" = "niobiopool" ]
 then
-  stratum_tcp=niobiopool.com.br:3331
+	stratum_tcp=niobiopool.com.br:3331
 elif [ "$1" = "niobiocashbb" ]
 then
-  stratum_tcp=niobiocash.bytecoinbrasil.net:3334
-  elif [ "$1" = "selvahost" ]
+	stratum_tcp=niobiocash.bytecoinbrasil.net:3334
+elif [ "$1" = "selvahost" ]
 then
-  stratum_tcp=nb.selvahost.com.br:3333
-  elif [ "$1" = "ciapool" ]
+	stratum_tcp=nb.selvahost.com.br:3333
+elif [ "$1" = "ciapool" ]
 then
-  stratum_tcp=nbr.ciapool.com:3333
-  elif [ "$1" = "poolddns" ]
+	stratum_tcp=nbr.ciapool.com:3333
+elif [ "$1" = "poolddns" ]
 then
-  stratum_tcp=nbr-pool.ddns.net:3333
-  elif [ "$1" = "stminerpool" ]
+	stratum_tcp=nbr-pool.ddns.net:3333
+elif [ "$1" = "stminerpool" ]
 then
-  stratum_tcp=stminerpool.com.br:3334
-  elif [ "$1" = "4miner" ]
+	stratum_tcp=stminerpool.com.br:3334
+elif [ "$1" = "4miner" ]
 then
-  stratum_tcp=us-nbr.4miner.me:3334
+	stratum_tcp=us-nbr.4miner.me:3334
 fi
 wallet=$2
 stratum_tcp_exemplo=stratum.miningpool:9999
@@ -149,11 +149,11 @@ echo "\033[44;1;37m       A mineração será iniciada em uma nova sessão.     
 echo "\033[44;1;37m           NÃO FECHE A JANELA DO CONSOLE AGORA!          \033[0m"
 echo "\033[44;1;37m     Feche a janela do web-console ou de seu aplicativo  \033[0m"
 echo "\033[44;1;37m  para acesso remoto somente após o início da mineração. \033[0m \n"
+sleep 5
+echo "Acompanhe o status de sua mineração no endereço da pool escolhida."
+echo "No campo abaixo de "Suas Estatísticas & Históricos de Pagamentos""
+echo "insira sua carteira e clique no botão "Buscar" a direita."
 sleep 15
-echo "\033[44;1;37m  Acompanhe o status de sua mineração no endereço da pool escolhida.  \033[0m"
-echo "\033[44;1;37m  No campo abaixo de "Suas Estatísticas & Históricos de Pagamentos",  \033[0m"
-echo "\033[44;1;37m       insira sua carteira e clique no botão "Buscar" a direita.      \033[0m \n"
-sleep 10
 clear
 
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m"
