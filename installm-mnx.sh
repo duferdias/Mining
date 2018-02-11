@@ -1,8 +1,8 @@
 #!/bin/sh -
 clear
-# Miner por: Racquemis | MxMiner v0.17a
-# Script base: AndreasBlk, BYETFAST, Darkstilo, FENIX_LINUX e SSH TLS
-# Editado por duferdias
+# Script por duferdias
+# Referencias e Contribuições: AndreasBlk, Darkstilo e FENIX_LINUX
+# Miner por Racquemis | MxMiner v0.17a
 
 # Este script foi desenvolvido para execução em ambiente Linux.
 # Pode ser executado automaticamente junto com a inicialização do sistema.
