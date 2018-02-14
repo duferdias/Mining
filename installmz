@@ -53,7 +53,7 @@ clear
 
 echo "\033[44;1;37mInstalando dependências...\033[0m"
 sudo apt-get install screen -y > /dev/null
-sudo apt-get install build-essential libssl-dev pthreads zlib libcurl4-openssl-dev libjansson-dev libgmp-dev gcc autoconf make automake -y > /dev/null
+sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev gcc autoconf make automake -y > /dev/null
 memsize=`free | awk '/Mem/ { print $2 }'`
 swapsize=`free | awk '/Swap/ { print $2 }'`
 if [ "$memsize" -lt "1000000" ]
@@ -83,8 +83,9 @@ sleep 2
 clear
 
 echo "\033[44;1;37mCompilando CPUMiner-OPT v3.8.1.1...(pode demorar um pouco)\033[0m"
-chmod +x build.sh
-./build.sh > /dev/null
+./autogen.sh
+CFLAGS="-O3 -march=native -Wall" CXXFLAGS="$CFLAGS -std=gnu++11 -DUSE_SPH_SHA" ./configure --with-curl
+make
 ln ./cpuminer ../cpuminer
 sleep 2
 clear
