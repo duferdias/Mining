@@ -52,8 +52,8 @@ if [ "$memsize" -lt "1000000" ]
 then
  if [ "$swapsize" -eq "0" ]
  then
-  echo "Foi detectado que você possui menos que 1GB de RAM"
-  echo "Será criada uma partição SWAP de 1GB para que não ocorra travamentos no sistema"
+  echo "Foi detectado que você possui menos que 1GB de RAM!"
+  echo "Será criada uma partição SWAP de 1GB para que não ocorra travamentos no sistema."
   sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=1000 > /dev/null
   sudo mkswap /var/swap.img > /dev/null
   sudo chmod 600 /var/swap.img
