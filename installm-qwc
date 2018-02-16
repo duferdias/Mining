@@ -2,7 +2,7 @@
 clear
 # Script por duferdias
 # Referencias e Contribuições: AndreasBlk, Darkstilo e FENIX_LINUX
-# Miner por JayDDee | CPUMiner-OPT v3.8.0.1
+# Miner por JayDDee | CPUMiner-OPT v3.8.2
 
 # Este script foi desenvolvido para execução em ambiente Linux.
 # Pode ser executado automaticamente junto com a inicialização do sistema.
@@ -20,7 +20,7 @@ carteira_exemplo=QWCyXXxx111YyyXXxx111YyyXXxx111YyyWYyyXXxx111YyyXXxx111YyyXXxx1
 
 if [ "$1" = ""  ]
 then
-echo "          \033[41;1;37m Minerar Qwertycoin com CPUMiner-OPT v3.8.0.1 \033[0m"				
+echo "          \033[41;1;37m Minerar Qwertycoin com CPUMiner-OPT v3.8.2 \033[0m"				
 sleep
 echo "\033[34mForma de uso:\033[0m"
 echo "sudo sh $0 \033[31m Endereço da Carteira de Qwertycoin\033[0m \n"
@@ -33,14 +33,14 @@ echo "\033[44;1;37m mineração.                                          \033[0
 exit 0
 fi
 
-echo "          \033[41;1;37m Minerar Qwertycoin com CPUMiner-OPT v3.8.0.1 \033[0m"	
+echo "          \033[41;1;37m Minerar Qwertycoin com CPUMiner-OPT v3.8.2 \033[0m"	
 sleep 1
 echo "CARTEIRA CONFIGURADA:\033[01;32m $wallet\033[0m"
 sleep 1
-echo "\033[01;31mMinerar Qwertycoin com CPUMiner-OPT v3.8.0.1  https://qwertycoin.site/\033[0m \n"
+echo "\033[01;31mMinerar Qwertycoin com CPUMiner-OPT v3.8.2  https://qwertycoin.site/\033[0m \n"
 sleep 1
-echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.0.1.  \033[0m"
-echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.            \033[0m"
+echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.2.  \033[0m"
+echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
 sleep 10
 clear
 
@@ -58,8 +58,8 @@ if [ "$memsize" -lt "1000000" ]
 then
  if [ "$swapsize" -eq "0" ]
  then
-  echo "Foi detectado que você possui menos que 1GB de RAM"
-  echo "Será criada uma partição SWAP de 1GB para que o CPUMiner-OPT seja compilado com sucesso"
+  echo "Foi detectado que você possui menos que 1GB de RAM!"
+  echo "Será criada uma partição SWAP de 1GB para que o CPUMiner-OPT seja compilado com sucesso."
   sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=1000 > /dev/null
   sudo mkswap /var/swap.img > /dev/null
   sudo chmod 600 /var/swap.img
@@ -69,19 +69,24 @@ fi
 sleep 2
 clear
 
-echo "\033[44;1;37mBaixando CPUMiner-OPT v3.8.0.1...\033[0m"
-wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.0.1.tar.gz
+echo "\033[44;1;37mBaixando CPUMiner-OPT v3.8.2...\033[0m"
+wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.2.tar.gz
 sleep 2
 clear
 
-echo "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.0.1...\033[0m"
-tar -zxvf v3.8.0.1.tar.gz > /dev/null
-cd cpuminer-opt-3.8.0.1
+echo "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.2...\033[0m"
+tar -zxvf v3.8.2.tar.gz > /dev/null
+cd cpuminer-opt-3.8.2
 sleep 2
 clear
 
-echo "\033[44;1;37mCompilando CPUMiner-OPT v3.8.0.1...(pode demorar um pouco)\033[0m"
-./build.sh > /dev/null
+echo "\033[44;1;37mCompilando CPUMiner-OPT v3.8.2...(pode demorar um pouco)\033[0m"
+make distclean || echo clean
+rm -f config.status
+./autogen.sh || echo done
+CFLAGS="-O3 -march=native -Wall" ./configure --with-curl
+make -j 4
+strip -s cpuminer
 ln ./cpuminer ../cpuminer
 sleep 2
 clear
