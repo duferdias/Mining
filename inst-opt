@@ -37,17 +37,17 @@ password="$4"
 core="$5"
 cpulimit="$6"
 #INSTALANDO MINNER
-echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.2.  \033[0m"
-echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
+echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.2.  \033[0m"
+echo -e "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
 sleep 10
 clear
 
-echo "\033[44;1;37mAtualizando lista de pacotes...\033[0m"
+echo -e "\033[44;1;37mAtualizando lista de pacotes...\033[0m"
 sudo apt-get update > /dev/null
 sleep 2
 clear
 
-echo "\033[44;1;37mInstalando dependências...\033[0m"
+echo -e "\033[44;1;37mInstalando dependências...\033[0m"
 sudo apt-get install screen -y > /dev/null
 sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev gcc autoconf make automake -y > /dev/null
 memsize=`free | awk '/Mem/ { print $2 }'`
@@ -56,8 +56,8 @@ if [ "$memsize" -lt "1000000" ]
 then
  if [ "$swapsize" -eq "0" ]
  then
-  echo "Foi detectado que você possui menos que 1GB de RAM!"
-  echo "Será criada uma partição SWAP de 1GB para que o CPUMiner-OPT seja compilado com sucesso."
+  echo -e "Foi detectado que você possui menos que 1GB de RAM!"
+  echo -e "Será criada uma partição SWAP de 1GB para que o CPUMiner-OPT seja compilado com sucesso."
   sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=1000 > /dev/null
   sudo mkswap /var/swap.img > /dev/null
   sudo chmod 600 /var/swap.img
@@ -67,18 +67,18 @@ fi
 sleep 2
 clear
 
-echo "\033[44;1;37mBaixando CPUMiner-OPT v3.8.2...\033[0m"
+echo -e "\033[44;1;37mBaixando CPUMiner-OPT v3.8.2...\033[0m"
 wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.2.tar.gz
 sleep 2
 clear
 
-echo "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.2...\033[0m"
+echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.2...\033[0m"
 tar -zxvf v3.8.2.tar.gz > /dev/null
 cd cpuminer-opt-3.8.2
 sleep 2
 clear
 
-echo "\033[44;1;37mCompilando CPUMiner-OPT v3.8.2...(pode demorar um pouco)\033[0m"
+echo -e "\033[44;1;37mCompilando CPUMiner-OPT v3.8.2...(pode demorar um pouco)\033[0m"
 make distclean || echo clean
 rm -f config.status
 ./autogen.sh || echo done
@@ -90,7 +90,7 @@ sudo mv cpuminer /usr/local/bin/
 sleep 2
 clear
 
-echo "\033[01;32mInstalação e configuração concluídas com sucesso."
+echo -e "\033[01;32mInstalação e configuração concluídas com sucesso."
 sleep 3
 clear
 #INSTALANDO CPU LIMIT
@@ -109,7 +109,11 @@ funtimer
 else
 sudo screen -dmS mining cpuminer -a ${algorithm} -o stratum+tcp://${stratum} -u ${user} -p ${password} -t ${core} -R 30
 fi
-echo -e "\033[44;1;37m Procedimento concluído! Mineração iniciada! \033[1;31m"
+sleep 2
+clear
+echo -e "\033[37;41mSua mineração foi iniciada! Para visualizar o processo digite o comando abaixo:\033[01;0m \n"
+echo -e "\033[37;41mCOMANDO [screen -x mining]\033[0m"
+sleep 1
 }
 
 __ini__ () {
