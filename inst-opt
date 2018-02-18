@@ -1,9 +1,12 @@
 #!/bin/sh
 clear
-# Copyright: Darkstilo
+# Copyright: 8TH & Darkstilo
 # Miner por JayDDee | CPUMiner-OPT
-# Referencias e Contribuições: AndreasBlk, FENIX_LINUX e 8TH
+# Referencias e Contribuições: AndreasBlk & FENIX_LINUX
 # Editado por duferdias
+
+# Este script foi desenvolvido para execução em ambiente Linux.
+# Pode ser executado automaticamente junto com a inicialização do sistema.
 
 funtimer () {
 sudo apt-get install at -y > /dev/null
@@ -18,7 +21,7 @@ echo -e "Parando Processos"
  done
 echo -e "Iniciando TIMER"
 echo "#!/bin/bash" > /bin/cron
-echo "sudo screen -dmS mining cpuminer -a ${algorithm} -o stratum+tcp://${stratum} -u ${user} -p ${password} -t ${core} -R 30" >> /bin/cron
+echo "sudo screen -dmS mining cpuminer -a ${algorithm} -o stratum+tcp://${stratum} -u ${user} -p ${password}" >> /bin/cron
 echo "sleep ${sllep}m" >> /bin/cron
 echo 'for pids in $(ps x|grep -v grep|grep cpuminer); do' >> /bin/cron
 echo 'kill -9 $pids' >> /bin/cron
@@ -29,14 +32,13 @@ sudo chmod 777 /bin/cron && bash /bin/cron & > /dev/null
 
 
 starts () {
-#COLETANDO VARIAVEIS
+#COLETANDO VARIÁVEIS
 algorithm="$1"
 stratum="$2"
 user="$3"
 password="$4"
-core="$5"
-cpulimit="$6"
-#INSTALANDO MINNER
+cpulimit="$5"
+#INSTALANDO MINER
 echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.2.  \033[0m"
 echo -e "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
 sleep 10
@@ -90,14 +92,15 @@ sudo mv cpuminer /usr/local/bin/
 sleep 2
 clear
 
-echo -e "\033[01;32mInstalação e configuração concluídas com sucesso."
-sleep 3
-clear
 #INSTALANDO CPU LIMIT
 sudo apt-get update > /dev/null
 sudo apt-get install aptitude -y > /dev/null
 sudo aptitude install cpulimit
 [[ ${cpulimit} != "" ]] && sudo screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}
+sleep 2
+echo -e "\033[01;32mInstalação e configuração concluídas com sucesso."
+sleep 3
+clear
 #EXECUTANDO
 if [[ $timer = @(s|S) ]]; then
  if [[ $timevar != "" ]]; then 
@@ -107,7 +110,7 @@ if [[ $timer = @(s|S) ]]; then
  fi
 funtimer 
 else
-sudo screen -dmS mining cpuminer -a ${algorithm} -o stratum+tcp://${stratum} -u ${user} -p ${password} -t ${core} -R 30
+sudo screen -dmS mining cpuminer -a ${algorithm} -o stratum+tcp://${stratum} -u ${user} -p ${password}
 fi
 sleep 2
 clear
@@ -118,25 +121,23 @@ sleep 1
 
 __ini__ () {
 #INICIANDO COLETA
-echo -e "Forma de Uso:\nbash $0 'algorithm' 'stratum' 'user' 'password' 'core' 'cpulimit'\nbash $0 neoscrypt teste.tk:9999 admin.worker01 x 8 0"
+echo -e "Forma de Uso:\nbash $0 'algorithm' 'stratum' 'user' 'password' 'cpulimit'\nbash $0 neoscrypt teste.tk:9999 admin.worker01 x 0"
 algorithm="$1"
 stratum="$2"
 user="$3"
 password="$4"
-core="$5"
-cpulimit="$6"
-timer="$7"
+cpulimit="$5"
+timer="$6"
 [[ "$(echo ${algorithm})" = "" ]] && read -p "Selecione o algorítmo: " algorithm
 [[ "$(echo ${stratum})" = "" ]] && read -p "Proxy com porta da Pool ou Stratum da Pool: " stratum
 [[ "$(echo ${user})" = "" ]] && read -p "Selecione o usuário ou carteira: " user
 [[ "$(echo ${password})" = "" ]] && read -p "Selecione a senha do usuário ou símbolo da moeda na forma c=SIGLA: " password
-[[ "$(echo ${core})" = "" ]] && read -p "Núcleos: " core
 [[ "$(echo ${cpulimit})" = "" ]] && read -p "cpu limit: " cpulimit
 [[ "$(echo ${timer})" = "" ]] && read -p "Iniciar timer [s|n]: " timer
 if [[ "$(echo ${cpulimit})" -gt "0" ]]; then
-starts ${algorithm} ${stratum} ${user} ${password} ${core} ${cpulimit}
+starts ${algorithm} ${stratum} ${user} ${password} ${cpulimit}
 else
-starts ${algorithm} ${stratum} ${user} ${password} ${core} 0
+starts ${algorithm} ${stratum} ${user} ${password} 0
 fi
 }
 timevar="$7"
