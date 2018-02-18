@@ -121,7 +121,7 @@ sleep 1
 
 __ini__ () {
 #INICIANDO COLETA
-echo -e "Forma de Uso:\nbash $0 'algorithm' 'stratum' 'user' 'password' 'cpulimit'\nbash $0 neoscrypt teste.tk:9999 admin.worker01 x 0"
+echo -e "Forma de Uso:\nbash $0 'algorithm' 'stratum' 'user' 'password' 'cpulimit' 'timeconfirm' 'timevar'\nbash $0 neoscrypt stratum.web:9999 admin.worker01 x 0 S 120"
 algorithm="$1"
 stratum="$2"
 user="$3"
