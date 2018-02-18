@@ -5,7 +5,7 @@ clear
 # Miner by JayDDee | CPUMiner-OPT v3.8.2
 
 # Pools de mineração de Niobio Cash (Fev 2018)
-# Definições
+# Definições:
 # ---------------------------------------------------
 # altpools     » nbr.altpools.com
 # stratum_tcp  » sv1.altpools.com:3334
@@ -30,6 +30,9 @@ clear
 # ---------------------------------------------------
 # 4miner       » nbr.4miner.me
 # stratum_tcp  » us-nbr.4miner.me:3334
+# ---------------------------------------------------
+# qrdpool      » nbr.qrdpool.net
+# stratum_tcp  » nbr.qrdpool.net:3334
 # ---------------------------------------------------
 
 # Este script foi desenvolvido para execução em ambiente Linux.
@@ -67,6 +70,9 @@ then
 elif [ "$1" = "4miner" ]
 then
  stratum_tcp=us-nbr.4miner.me:3334
+elif [ "$1" = "qrdpool" ]
+then
+ stratum_tcp=nbr.qrdpool.net:3334
 fi
 wallet=$2
 stratum_tcp_exemplo=stratum.miningpool:9999
