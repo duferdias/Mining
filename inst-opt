@@ -14,10 +14,10 @@ echo -e "Eliminando PIDS"
  for _pids_ in `atq | awk '{print $1}'`; do
  atrm $_pids_ > /dev/null 2>&1
  done
-crontab -r
+sudo crontab -r
 echo -e "Parando Processos"
  for pids in `ps x|grep -v grep|grep cpuminer`; do
- kill -9 pids > /dev/null 2>&1
+ sudo kill -9 pids > /dev/null 2>&1
  done
 echo -e "Iniciando TIMER"
 echo "#!/bin/bash" > /bin/cron
