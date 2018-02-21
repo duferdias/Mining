@@ -81,13 +81,13 @@ sudo apt-get install nodejs -y
 sudo apt-get install maven -y
 
 # [ Install Stratum Proxy ]
-wget https://github.com/duferdias/stratum-proxy/archive/v0.8.1.tar.gz -O v0.8.1.tar.gz
-tar -xzvf v0.8.1.tar.gz
-cd stratum-proxy-0.8.1
+wget https://github.com/duferdias/stratum-proxy/archive/v0.8.1.1.tar.gz -O v0.8.1.1.tar.gz
+tar -xzvf v0.8.1.1.tar.gz
+cd stratum-proxy-0.8.1.1
 mvn clean package
 cd target
 
-wget https://github.com/duferdias/stratum-proxy/releases/download/v0.8.1/stratum-proxy-yescrypt.conf -O stratum-proxy-yescrypt.conf
+wget https://github.com/duferdias/stratum-proxy/releases/download/v0.8.1.1/stratum-proxy-yescrypt.conf -O stratum-proxy-yescrypt.conf
 
 # Convert format dos2unix
 # awk '{printf "%s\r\n", $0}' stratum-proxy-yescrypt.conf
