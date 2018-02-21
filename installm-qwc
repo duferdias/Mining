@@ -81,7 +81,12 @@ sleep 2
 clear
 
 echo "\033[44;1;37mCompilando CPUMiner-OPT v3.8.2.1...(pode demorar um pouco)\033[0m"
-./build.sh > /dev/null
+make distclean || echo clean
+rm -f config.status
+./autogen.sh || echo done
+CFLAGS="-O3 -march=native -Wall" ./configure --with-curl
+make -j 4
+strip -s cpuminer
 ln ./cpuminer ../cpuminer
 sleep 2
 clear
