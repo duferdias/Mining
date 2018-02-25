@@ -2,13 +2,13 @@
 clear
 # Script por duferdias
 # Referencias e Contribuições: AndreasBlk, Darkstilo e FENIX_LINUX
-# Miner por JayDDee | CPUMiner-OPT v3.8.2.1
+# Miner por JayDDee | CPUMiner-OPT v3.8.3.2
 
 # Este script foi desenvolvido para execução em ambiente Linux:
 # - Configura a mineração de modo que os hashes são enviados à 
 #   Pool através de um servidor proxy;
 #   - A mineração funciona em todas as pools que usam os 
-#     algorítimos suportados pelo cpuminer-opt v3.8.2.1 e o
+#     algorítimos suportados pelo cpuminer-opt v3.8.3.2 e o
 #     hashrate medidos em hashes/s;
 # - O cpuminer-opt identifica automaticamente o tipo de CPU e
 #   e habilita todos os núcleos disponíveis para a mineração.
@@ -31,7 +31,7 @@ strat_exemplo=minerxyz.com:6233
 
 if [ "$1" = ""  ] && [ "$2" = ""  ]
 then
-echo "     \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.2.1 via Stratum Proxy \033[0m"				
+echo "     \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.3.2 via Stratum Proxy \033[0m"				
 sleep
 echo "\033[34mForma de uso:\033[0m"
 echo "sudo sh $0 \033[31m Algorítimo\033[32m Stratum Proxy e Porta(pool)\033[0m \n"
@@ -47,11 +47,11 @@ echo "\033[44;1;37m informações da pool e conta do usuário.             \033[
 exit 0
 fi
 
-echo "     \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.2.1 via Stratum Proxy \033[0m"	
+echo "     \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.3.2 via Stratum Proxy \033[0m"	
 sleep 1
 echo "PARÂMETROS CONFIGURADOS:\033[01;32m $algorithm $stratump_tcp\033[0m \n"
 sleep 1
-echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.2.1.  \033[0m"
+echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.3.2.  \033[0m"
 echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.            \033[0m"
 sleep 10
 clear
@@ -81,18 +81,18 @@ fi
 sleep 2
 clear
 
-echo "\033[44;1;37mBaixando CPUMiner-OPT v3.8.2.1...\033[0m"
-wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.2.1.tar.gz
+echo "\033[44;1;37mBaixando CPUMiner-OPT v3.8.3.2...\033[0m"
+wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.3.2.tar.gz
 sleep 2
 clear
 
-echo "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.2.1...\033[0m"
-tar -zxvf v3.8.2.1.tar.gz > /dev/null
-cd cpuminer-opt-3.8.2.1
+echo "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.3.2...\033[0m"
+tar -zxvf v3.8.3.2.tar.gz > /dev/null
+cd cpuminer-opt-3.8.3.2
 sleep 2
 clear
 
-echo "\033[44;1;37mCompilando CPUMiner-OPT v3.8.2.1...(pode demorar um pouco)\033[0m"
+echo "\033[44;1;37mCompilando CPUMiner-OPT v3.8.3.2...(pode demorar um pouco)\033[0m"
 make distclean || echo clean
 rm -f config.status
 ./autogen.sh || echo done
