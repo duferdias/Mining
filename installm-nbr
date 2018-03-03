@@ -4,7 +4,7 @@ clear
 # Contribution: AndreasBlk
 # Miner by JayDDee | CPUMiner-OPT v3.8.3.3
 
-# Pools de mineração de Niobio Cash (Fev 2018)
+# Pools de mineração de Niobio Cash (Março 2018)
 # Definições:
 # ---------------------------------------------------
 # altpools     » nbr.altpools.com
@@ -162,8 +162,8 @@ echo "\033[44;1;37m     Feche a janela do web-console ou de seu aplicativo  \033
 echo "\033[44;1;37m  para acesso remoto somente após o início da mineração. \033[0m \n"
 sleep 5
 echo "Acompanhe o status de sua mineração no endereço da pool escolhida."
-echo "No campo abaixo de "Suas Estatísticas & Históricos de Pagamentos""
-echo "insira sua carteira e clique no botão "Buscar" a direita."
+echo "No campo abaixo de <Suas Estatísticas & Históricos de Pagamentos>,"
+echo "insira sua carteira e clique no botão <Buscar> a direita."
 sleep 15
 clear
 
