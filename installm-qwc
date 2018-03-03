@@ -37,7 +37,7 @@ echo "          \033[41;1;37m Minerar Qwertycoin com CPUMiner-OPT v3.8.3.3 \033[
 sleep 1
 echo "CARTEIRA CONFIGURADA:\033[01;32m $wallet\033[0m"
 sleep 1
-echo "\033[01;31mMinerar Qwertycoin com CPUMiner-OPT v3.8.3.3  https://qwertycoin.site/\033[0m \n"
+echo "\033[01;31mMinerar Qwertycoin com CPUMiner-OPT v3.8.3.3  https://qwertycoin.site\033[0m \n"
 sleep 1
 echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.3.3.  \033[0m"
 echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.            \033[0m"
@@ -100,9 +100,9 @@ echo "\033[44;1;37m           NÃO FECHE A JANELA DO CONSOLE AGORA!          \03
 echo "\033[44;1;37m     Feche a janela do web-console ou de seu aplicativo  \033[0m"
 echo "\033[44;1;37m  para acesso remoto somente após o início da mineração. \033[0m \n"
 sleep 5
-echo "Acompanhe o status de sua mineração no endereço https://qwertycoin.site/."
-echo "No campo abaixo de "Suas Estatísticas & Históricos de Pagamentos""
-echo "insira sua carteira e clique no botão "Buscar" a direita."
+echo "Acompanhe o status de sua mineração no endereço https://qwertycoin.site."
+echo "No campo abaixo de <Suas Estatísticas & Históricos de Pagamentos>,"
+echo "insira sua carteira e clique no botão <Buscar> a direita."
 sleep 15
 clear
 
