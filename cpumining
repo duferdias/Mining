@@ -1,0 +1,181 @@
+#!/bin/sh
+clear
+# Miner by: JayDDee
+# CREATED BY: 8TH.
+# CREDITS 8TH & Ecologyc
+# Project scheduled by: 8TH
+# Faça uma pequena doação para o criador e programador deste projeto;
+# Carteira BTC: 1Mzyt8ucJ1YW8JhQ6te13VWhoiEsTKhZF4
+
+# Editado por Duferdias
+
+#-----------
+funreboot () {
+sudo apt-get install at -y > /dev/null
+echo -e "Eliminando PIDS"
+ for _pids_ in `atq | awk '{print $1}'`; do
+ atrm $_pids_ > /dev/null 2>&1
+ done
+crontab -r
+echo -e "Parando Processos"
+ for pids in `ps x|grep -v grep|grep cpuminer`; do
+ kill -9 pids > /dev/null 2>&1
+ done
+echo -e "Iniciando TIMER"
+sudo touch /bin/cron
+sudo chmod 777 /bin/cron
+echo "#!/bin/bash" > /bin/cron
+echo "[[ ${cpulimit} -gt "0" ]] && screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}" >> /bin/cron
+echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${core} -R 30${coin}" >> /bin/cron
+echo "sleep ${rebo}m" >> /bin/cron
+echo "at -f /bin/cron now + 30 sec" >> /bin/cron
+echo "sudo reboot" >> /bin/cron
+sudo chmod 777 /bin/cron && bash /bin/cron & > /dev/null
+}
+
+funtimer () {
+sudo apt-get install at -y > /dev/null
+echo -e "Eliminando PIDS"
+ for _pids_ in `atq | awk '{print $1}'`; do
+ atrm $_pids_ > /dev/null 2>&1
+ done
+crontab -r
+echo -e "Parando Processos"
+ for pids in `ps x|grep -v grep|grep cpuminer`; do
+ kill -9 pids > /dev/null 2>&1
+ done
+echo -e "Iniciando TIMER"
+echo "#!/bin/bash" > /bin/cron
+echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${core} -R 30${coin}" >> /bin/cron
+echo "sleep ${timer}m" >> /bin/cron
+echo 'for pids in $(ps x|grep -v grep|grep cpuminer); do' >> /bin/cron
+echo 'kill -9 $pids' >> /bin/cron
+echo 'done' >> /bin/cron
+echo "at -f /bin/cron now + 30 min" >> /bin/cron
+sudo chmod 777 /bin/cron && bash /bin/cron & > /dev/null
+}
+
+fun_help () {
+echo -e '\033[1;31mMinning SCP 8th\n\033[1;33mModo de uso!\nUtilize os parâmetros na execução do script!'
+echo -e "\033[1;37m$0 -a 'algoritmo' -c 'core' -l 'cpu-limit' -s 'stratum'"
+echo -e "\033[1;33mParâmetros adicionais:\n\033[1;37m-w 'wallet'\n-e 'email'\n-m 'Moeda'\n-t 'timer'\n-r 'reboot'"
+}
+
+#/* -----------------------------------------------*/
+#/* ------->>> INICIALIZANDO PARÂMETROS <<<--------*/
+#/* -----------------------------------------------*/
+entrada=($@)
+for((nu=0; nu<${#entrada[@]}; nu++)); do
+#ALGORITIMO
+[[ ${entrada[$nu]} = @(-h|-H|-help|-Help) ]] && fun_help && exit 0
+[[ ${entrada[$nu]} = @(-a|-A|-Alg|-alg) ]] && algoritimo=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-s|-S|-Str|-str) ]] && stratum=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-c|-C|-Cor|-cor) ]] && core=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-l|-L|-Cpu|-cpu) ]] && cpulimit=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-t|-T|-Tim|-tim) ]] && timer=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-w|-W|-Wal|-wal) ]] && wallet=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-e|-E|-Em|-em) ]] && email=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-m|-M|-Moe|-moe) ]] && moeda=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-r|-R|-Reb|-reb) ]] && rebo=${entrada[$(($nu+1))]}
+done
+if [[ "$@" != "" ]]; then
+echo -e "\033[1;31mIniciando procedimento com os seguintes valores:\033[1;33m"
+[[ "$(echo ${wallet})" != "" ]] && echo -e "wallet = ${wallet}"
+[[ "$(echo ${email})" != "" ]] && echo -e "email = ${email}"
+[[ "$(echo ${moeda})" != "" ]] && echo -e "moeda = ${moeda}"
+[[ "$(echo ${algoritimo})" != "" ]] && echo -e "algoritmo = ${algoritimo}"
+[[ "$(echo ${stratum})" != "" ]] && echo -e "stratum = ${stratum}"
+[[ "$(echo ${core})" != "" ]] && echo -e "nucleos = ${core}"
+[[ "$(echo ${cpulimit})" != "" ]] && echo -e "cpu-limite = ${cpulimit}"
+[[ "$(echo ${timer})" != "" ]] && echo -e "timer/30 = ${timer}"
+[[ "$(echo ${rebo})" != "" ]] && echo -e "mining/reboot = ${rebo}"
+fi
+
+#/* -----------------------------------------------*/
+#/* -------->>> AVERIGUANDO PARÂMETROS <<<---------*/
+#/* -----------------------------------------------*/
+unset help
+[[ "$(echo ${wallet})" != "" ]] && walle=" -u ${wallet}"
+[[ "$(echo ${email})" != "" ]] && eman=" -p ${email}"
+[[ "$(echo ${moeda})" != "" ]] && coin=" c=${moeda}"
+[[ "$(echo ${algoritimo})" != "" ]] && algoritimo="${algoritimo}"
+[[ "$(echo ${stratum})" != "" ]] && stratum="${stratum}"
+[[ "$(echo ${core})" != "" ]] && core=" -t ${core}"
+[[ "$(echo ${cpulimit})" = "" ]] && cpulimit="${cpulimit}"
+[[ "$(echo ${timer})" = "" ]] && timer="${timer}"
+[[ "${help}" = "1" ]] && fun_help
+unset help
+
+#/* -----------------------------------------------*/
+#/* ----------->>> INSTALANDO MINER <<<------------*/
+#/* -----------------------------------------------*/
+echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.3.3.  \033[0m"
+echo -e "\033[44;1;37m            Ao término, a mineração iniciará automaticamente.           \033[0m"
+sleep 10
+clear
+
+echo -e "\033[44;1;37mAtualizando lista de pacotes...\033[0m"
+sudo apt-get update > /dev/null
+sleep 2
+clear
+
+echo -e "\033[44;1;37mInstalando dependências...\033[0m"
+apt-get install aptitude -y
+sudo aptitude install cpulimit -y
+sudo apt-get install screen -y > /dev/null
+sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev gcc autoconf make automake -y > /dev/null
+memsize=`free | awk '/Mem/ { print $2 }'`
+swapsize=`free | awk '/Swap/ { print $2 }'`
+# Quando necessário cria uma partição SWAP de 1GB para máquinas com menos de 1GB de RAM.
+if [ "$memsize" -lt "1000000" ]
+then
+ if [ "$swapsize" -eq "0" ]
+ then
+  echo -e "Foi detectado que você possui menos que 1GB de RAM!"
+  echo -e "Será criada uma partição SWAP de 1GB para que o CPUMiner-OPT seja compilado com sucesso."
+  sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=1000 > /dev/null
+  sudo mkswap /var/swap.img > /dev/null
+  sudo chmod 600 /var/swap.img
+  sudo swapon /var/swap.img
+ fi
+fi
+sleep 2
+clear
+
+echo -e "\033[44;1;37mBaixando CPUMiner-OPT v3.8.3.3...\033[0m"
+wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.3.3.tar.gz
+sleep 2
+clear
+
+echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.3.3...\033[0m"
+tar -zxvf v3.8.3.3.tar.gz > /dev/null
+cd cpuminer-opt-3.8.3.3
+sleep 2
+clear
+
+echo -e "\033[44;1;37mCompilando CPUMiner-OPT v3.8.3.3...(pode demorar um pouco)\033[0m"
+make distclean || echo clean
+rm -f config.status
+./autogen.sh || echo done
+CFLAGS="-O3 -march=native -Wall" ./configure --with-curl
+make -j 4
+strip -s cpuminer
+sudo chmod 777 cpuminer
+# ln ./cpuminer ../cpuminer
+sudo mv cpuminer /usr/local/bin/
+
+#/* -----------------------------------------------*/
+#/* ---------->>> INICIALIZANDO LIMIT <<<----------*/
+#/* -----------------------------------------------*/
+[[ ${cpulimit} -gt "0" ]] && sudo screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}
+#/* -----------------------------------------------*/
+#/* -------------->>> EXECUTANDO <<<---------------*/
+#/* -----------------------------------------------*/
+if [[ ${rebo} -gt "0" ]]; then
+funreboot
+elif [[ ${timer} -gt "0" ]]; then
+funtimer
+else
+sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${core} -R 30${coin}
+fi
+echo -e "\033[44;1;37m Procedimento concluído e mineração iniciada! \033[0m"
