@@ -2,12 +2,10 @@
 clear
 # Miner by: JayDDee
 # CREATED BY: 8TH.
-# CREDITS 8TH & Ecologyc
+# CREDITS 8TH, Ecologyc & Devtechm
 # Project scheduled by: 8TH
 # Faça uma pequena doação para o criador e programador deste projeto;
 # Carteira BTC: 1Mzyt8ucJ1YW8JhQ6te13VWhoiEsTKhZF4
-
-# Editado por Duferdias
 
 #-----------
 funreboot () {
@@ -18,7 +16,7 @@ echo -e "Eliminando PIDS"
  done
 crontab -r
 echo -e "Parando Processos"
- for pids in `ps x|grep -v grep|grep CPUMng`; do
+ for pids in `ps x|grep -v grep|grep cpuminer`; do
  kill -9 pids > /dev/null 2>&1
  done
 echo -e "Iniciando TIMER"
@@ -28,7 +26,7 @@ echo "#!/bin/bash" > /bin/cron
 echo "[[ ${cpulimit} -gt "0" ]] && screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}" >> /bin/cron
 echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${coin}${core}" >> /bin/cron
 echo "sleep ${rebo}m" >> /bin/cron
-echo "at -f /bin/cron now + 30 sec" >> /bin/cron
+echo "at -f /bin/cron now + 2 min" >> /bin/cron
 echo "sudo reboot" >> /bin/cron
 sudo chmod 777 /bin/cron && bash /bin/cron & > /dev/null
 }
@@ -41,14 +39,14 @@ echo -e "Eliminando PIDS"
  done
 crontab -r
 echo -e "Parando Processos"
- for pids in `ps x|grep -v grep|grep CPUMng`; do
+ for pids in `ps x|grep -v grep|grep cpuminer`; do
  kill -9 pids > /dev/null 2>&1
  done
 echo -e "Iniciando TIMER"
 echo "#!/bin/bash" > /bin/cron
 echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${coin}${core}" >> /bin/cron
 echo "sleep ${timer}m" >> /bin/cron
-echo 'for pids in $(ps x|grep -v grep|grep CPUMng); do' >> /bin/cron
+echo 'for pids in $(ps x|grep -v grep|grep cpuminer); do' >> /bin/cron
 echo 'kill -9 $pids' >> /bin/cron
 echo 'done' >> /bin/cron
 echo "at -f /bin/cron now + 30 min" >> /bin/cron
@@ -177,4 +175,7 @@ funtimer
 else
 sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${coin}${core}
 fi
-echo -e "\033[44;1;37m Procedimento concluído e mineracao iniciada! \033[0m"
+sleep 2
+clear
+
+echo -e "\033[44;1;37m Procedimento concluído e mineração iniciada! \033[0m"
