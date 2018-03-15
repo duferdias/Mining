@@ -18,7 +18,7 @@ echo -e "Eliminando PIDS"
  done
 crontab -r
 echo -e "Parando Processos"
- for pids in `ps x|grep -v grep|grep cpuminer`; do
+ for pids in `ps x|grep -v grep|grep CPUMng`; do
  kill -9 pids > /dev/null 2>&1
  done
 echo -e "Iniciando TIMER"
@@ -26,7 +26,7 @@ sudo touch /bin/cron
 sudo chmod 777 /bin/cron
 echo "#!/bin/bash" > /bin/cron
 echo "[[ ${cpulimit} -gt "0" ]] && screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}" >> /bin/cron
-echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${core} -R 30${coin}" >> /bin/cron
+echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${coin}${core}" >> /bin/cron
 echo "sleep ${rebo}m" >> /bin/cron
 echo "at -f /bin/cron now + 30 sec" >> /bin/cron
 echo "sudo reboot" >> /bin/cron
@@ -41,14 +41,14 @@ echo -e "Eliminando PIDS"
  done
 crontab -r
 echo -e "Parando Processos"
- for pids in `ps x|grep -v grep|grep cpuminer`; do
+ for pids in `ps x|grep -v grep|grep CPUMng`; do
  kill -9 pids > /dev/null 2>&1
  done
 echo -e "Iniciando TIMER"
 echo "#!/bin/bash" > /bin/cron
-echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${core} -R 30${coin}" >> /bin/cron
+echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${coin}${core}" >> /bin/cron
 echo "sleep ${timer}m" >> /bin/cron
-echo 'for pids in $(ps x|grep -v grep|grep cpuminer); do' >> /bin/cron
+echo 'for pids in $(ps x|grep -v grep|grep CPUMng); do' >> /bin/cron
 echo 'kill -9 $pids' >> /bin/cron
 echo 'done' >> /bin/cron
 echo "at -f /bin/cron now + 30 min" >> /bin/cron
@@ -56,7 +56,7 @@ sudo chmod 777 /bin/cron && bash /bin/cron & > /dev/null
 }
 
 fun_help () {
-echo -e '\033[1;31mMinning SCP 8th\n\033[1;33mModo de uso!\nUtilize os parâmetros na execução do script!'
+echo -e '\033[1;31mMining SCP 8th\n\033[1;33mModo de uso!\nUtilize os parâmetros na execução do script!'
 echo -e "\033[1;37m$0 -a 'algoritmo' -c 'core' -l 'cpu-limit' -s 'stratum'"
 echo -e "\033[1;33mParâmetros adicionais:\n\033[1;37m-w 'wallet'\n-e 'email'\n-m 'Moeda'\n-t 'timer'\n-r 'reboot'"
 }
@@ -160,7 +160,6 @@ rm -f config.status
 CFLAGS="-O3 -march=native -Wall" ./configure --with-curl
 make -j 4
 strip -s cpuminer
-sudo chmod 777 cpuminer
 # ln ./cpuminer ../cpuminer
 sudo mv cpuminer /usr/local/bin/
 
@@ -176,6 +175,6 @@ funreboot
 elif [[ ${timer} -gt "0" ]]; then
 funtimer
 else
-sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${core} -R 30${coin}
+sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${coin}${core}
 fi
-echo -e "\033[44;1;37m Procedimento concluído e mineração iniciada! \033[0m"
+echo -e "\033[44;1;37m Procedimento concluído e mineracao iniciada! \033[0m"
