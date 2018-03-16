@@ -107,7 +107,6 @@ unset help
 [[ "$(echo ${cpulimit})" = "" ]] && cpulimit="${cpulimit}"
 [[ "$(echo ${timer})" = "" ]] && timer="${timer}"
 unset help
-\n
 
 #/* -----------------------------------------------*/
 #/* ----------->>> INSTALANDO MINER <<<------------*/
