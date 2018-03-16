@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 clear
 # Miner by: JayDDee;
 # CREATED BY: 8TH;
@@ -93,6 +93,8 @@ echo -e "\033[1;31mIniciando procedimento com os seguintes valores:\033[1;33m"
 [[ "$(echo ${timer})" != "" ]] && echo -e "timer/30 = ${timer}"
 [[ "$(echo ${rebo})" != "" ]] && echo -e "mining/reboot = ${rebo}"
 fi
+echo -e "\033[1;31m------------------------------------------------\033[1;33m \n"
+sleep 5
 
 #/* -----------------------------------------------*/
 #/* -------->>> AVERIGUANDO PARÂMETROS <<<---------*/
@@ -183,6 +185,6 @@ fi
 sleep 2
 clear
 
-echo -e "\033[44;1;37mProcedimento concluído e mineração iniciada!\033[0m \n"
-echo -e "\033[44;1;37mPara visualizar o processo digite o comando abaixo:\033[0m \n"
-echo -e "\033[44;1;37mCOMANDO [screen -x mining]\033[0m"
+echo -e "\033[44;1;37m Procedimento concluído e mineração iniciada! \033[0m"
+echo -e "\033[44;1;37m Para visualizar o processo digite o comando: \033[0m"
+echo -e "\033[44;1;37m               screen -x mining               \033[0m"
