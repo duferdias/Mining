@@ -1,10 +1,11 @@
 #!/bin/sh
 clear
-# Miner by: JayDDee
-# CREATED BY: 8TH.
-# CREDITS 8TH, Ecologyc & Devtechm
-# Project scheduled by: 8TH
-# Faça uma pequena doação para o criador e programador deste projeto;
+# Miner by: JayDDee;
+# CREATED BY: 8TH;
+# CREDITS: 8TH, Ecologyc & Devtechm;
+# Project scheduled by: 8TH;
+# Modified by: Devtechm;
+# Faça uma pequena doação para o criador e programador deste projeto!
 # Carteira BTC: 1Mzyt8ucJ1YW8JhQ6te13VWhoiEsTKhZF4
 
 #-----------
@@ -23,8 +24,10 @@ echo -e "Iniciando TIMER"
 sudo touch /bin/cron
 sudo chmod 777 /bin/cron
 echo "#!/bin/bash" > /bin/cron
-echo "[[ ${cpulimit} -gt "0" ]] && screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}" >> /bin/cron
-echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${coin}${core}" >> /bin/cron
+if [[ ${cpulimit} -gt "0" ]]; then
+echo "sudo screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}" >> /bin/cron
+fi
+echo "sudo screen -dmS mining cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${user}${pass}${core}" >> /bin/cron
 echo "sleep ${rebo}m" >> /bin/cron
 echo "at -f /bin/cron now + 2 min" >> /bin/cron
 echo "sudo reboot" >> /bin/cron
@@ -44,19 +47,23 @@ echo -e "Parando Processos"
  done
 echo -e "Iniciando TIMER"
 echo "#!/bin/bash" > /bin/cron
-echo "sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${coin}${core}" >> /bin/cron
+if [[ ${cpulimit} -gt "0" ]]; then
+echo "sudo screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}" >> /bin/cron
+fi
+echo "sudo screen -dmS mining cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${user}${pass}${core}" >> /bin/cron
 echo "sleep ${timer}m" >> /bin/cron
 echo 'for pids in $(ps x|grep -v grep|grep cpuminer); do' >> /bin/cron
 echo 'kill -9 $pids' >> /bin/cron
+echo 'screen -S mining -X quit' >> /bin/cron
 echo 'done' >> /bin/cron
 echo "at -f /bin/cron now + 30 min" >> /bin/cron
 sudo chmod 777 /bin/cron && bash /bin/cron & > /dev/null
 }
 
 fun_help () {
-echo -e '\033[1;31mMining SCP 8th\n\033[1;33mModo de uso!\nUtilize os parâmetros na execução do script!'
-echo -e "\033[1;37m$0 -a 'algoritmo' -c 'core' -l 'cpu-limit' -s 'stratum'"
-echo -e "\033[1;33mParâmetros adicionais:\n\033[1;37m-w 'wallet'\n-e 'email'\n-m 'Moeda'\n-t 'timer'\n-r 'reboot'"
+echo -e "\033[1;31mMining SCP 8th\n\033[1;33mModo de uso!\nUtilize os parâmetros na execução do script!"
+echo -e "\033[1;37m$0 -a 'algorithm' -s 'stratum+tcp' -u 'user' -p 'password'"
+echo -e "\033[1;33mParâmetros adicionais:\n\033[1;37m-c 'core'\n-l 'cpulimit'\n-t 'timer'\n-r 'reboot'"
 }
 
 #/* -----------------------------------------------*/
@@ -64,27 +71,25 @@ echo -e "\033[1;33mParâmetros adicionais:\n\033[1;37m-w 'wallet'\n-e 'email'\n-
 #/* -----------------------------------------------*/
 entrada=($@)
 for((nu=0; nu<${#entrada[@]}; nu++)); do
-#ALGORITIMO
+#algorithm
 [[ ${entrada[$nu]} = @(-h|-H|-help|-Help) ]] && fun_help && exit 0
-[[ ${entrada[$nu]} = @(-a|-A|-Alg|-alg) ]] && algoritimo=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-a|-A|-Alg|-alg) ]] && algorithm=${entrada[$(($nu+1))]}
 [[ ${entrada[$nu]} = @(-s|-S|-Str|-str) ]] && stratum=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-u|-U|-Usr|-usr) ]] && user=${entrada[$(($nu+1))]}
+[[ ${entrada[$nu]} = @(-p|-P|-Pwd|-pwd) ]] && password=${entrada[$(($nu+1))]}
 [[ ${entrada[$nu]} = @(-c|-C|-Cor|-cor) ]] && core=${entrada[$(($nu+1))]}
 [[ ${entrada[$nu]} = @(-l|-L|-Cpu|-cpu) ]] && cpulimit=${entrada[$(($nu+1))]}
 [[ ${entrada[$nu]} = @(-t|-T|-Tim|-tim) ]] && timer=${entrada[$(($nu+1))]}
-[[ ${entrada[$nu]} = @(-w|-W|-Wal|-wal) ]] && wallet=${entrada[$(($nu+1))]}
-[[ ${entrada[$nu]} = @(-e|-E|-Em|-em) ]] && email=${entrada[$(($nu+1))]}
-[[ ${entrada[$nu]} = @(-m|-M|-Moe|-moe) ]] && moeda=${entrada[$(($nu+1))]}
 [[ ${entrada[$nu]} = @(-r|-R|-Reb|-reb) ]] && rebo=${entrada[$(($nu+1))]}
 done
 if [[ "$@" != "" ]]; then
 echo -e "\033[1;31mIniciando procedimento com os seguintes valores:\033[1;33m"
-[[ "$(echo ${wallet})" != "" ]] && echo -e "wallet = ${wallet}"
-[[ "$(echo ${email})" != "" ]] && echo -e "email = ${email}"
-[[ "$(echo ${moeda})" != "" ]] && echo -e "moeda = ${moeda}"
-[[ "$(echo ${algoritimo})" != "" ]] && echo -e "algoritmo = ${algoritimo}"
+[[ "$(echo ${algorithm})" != "" ]] && echo -e "algorithm = ${algorithm}"
 [[ "$(echo ${stratum})" != "" ]] && echo -e "stratum = ${stratum}"
-[[ "$(echo ${core})" != "" ]] && echo -e "nucleos = ${core}"
-[[ "$(echo ${cpulimit})" != "" ]] && echo -e "cpu-limite = ${cpulimit}"
+[[ "$(echo ${user})" != "" ]] && echo -e "user = ${user}"
+[[ "$(echo ${password})" != "" ]] && echo -e "password = ${password}"
+[[ "$(echo ${core})" != "" ]] && echo -e "core = ${core}"
+[[ "$(echo ${cpulimit})" != "" ]] && echo -e "cpulimit = ${cpulimit}"
 [[ "$(echo ${timer})" != "" ]] && echo -e "timer/30 = ${timer}"
 [[ "$(echo ${rebo})" != "" ]] && echo -e "mining/reboot = ${rebo}"
 fi
@@ -93,16 +98,16 @@ fi
 #/* -------->>> AVERIGUANDO PARÂMETROS <<<---------*/
 #/* -----------------------------------------------*/
 unset help
-[[ "$(echo ${wallet})" != "" ]] && walle=" -u ${wallet}"
-[[ "$(echo ${email})" != "" ]] && eman=" -p ${email}"
-[[ "$(echo ${moeda})" != "" ]] && coin=" c=${moeda}"
-[[ "$(echo ${algoritimo})" != "" ]] && algoritimo="${algoritimo}"
-[[ "$(echo ${stratum})" != "" ]] && stratum="${stratum}"
+[[ "${help}" = "1" ]] && fun_help
+[[ "$(echo ${algorithm})" != "" ]] && algo="${algorithm}"
+[[ "$(echo ${stratum})" != "" ]] && str_tcp="${stratum}"
+[[ "$(echo ${user})" != "" ]] && user=" -u ${user}"
+[[ "$(echo ${password})" != "" ]] && pass=" -p ${password}"
 [[ "$(echo ${core})" != "" ]] && core=" -t ${core}"
 [[ "$(echo ${cpulimit})" = "" ]] && cpulimit="${cpulimit}"
 [[ "$(echo ${timer})" = "" ]] && timer="${timer}"
-[[ "${help}" = "1" ]] && fun_help
 unset help
+\n
 
 #/* -----------------------------------------------*/
 #/* ----------->>> INSTALANDO MINER <<<------------*/
@@ -158,13 +163,14 @@ rm -f config.status
 CFLAGS="-O3 -march=native -Wall" ./configure --with-curl
 make -j 4
 strip -s cpuminer
-# ln ./cpuminer ../cpuminer
 sudo mv cpuminer /usr/local/bin/
 
 #/* -----------------------------------------------*/
 #/* ---------->>> INICIALIZANDO LIMIT <<<----------*/
 #/* -----------------------------------------------*/
-[[ ${cpulimit} -gt "0" ]] && sudo screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}
+if [[ ${cpulimit} -gt "0" ]]; then
+sudo screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}
+fi
 #/* -----------------------------------------------*/
 #/* -------------->>> EXECUTANDO <<<---------------*/
 #/* -----------------------------------------------*/
@@ -173,9 +179,11 @@ funreboot
 elif [[ ${timer} -gt "0" ]]; then
 funtimer
 else
-sudo screen -dmS mining cpuminer -a ${algoritimo} -o stratum+tcp://${stratum}${walle}${eman}${coin}${core}
+sudo screen -dmS mining cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${user}${pass}${core}
 fi
 sleep 2
 clear
 
-echo -e "\033[44;1;37m Procedimento concluído e mineração iniciada! \033[0m"
+echo -e "\033[44;1;37mProcedimento concluído e mineração iniciada!\033[0m \n"
+echo -e "\033[44;1;37mPara visualizar o processo digite o comando abaixo:\033[0m \n"
+echo -e "\033[44;1;37mCOMANDO [screen -x mining]\033[0m"
