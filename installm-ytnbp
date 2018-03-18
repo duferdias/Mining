@@ -22,7 +22,7 @@ simbolo_exemplo=YTN
 
 if [ "$1" = ""  ] && [ "$2" = ""  ]
 then
-echo "		\033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.3.3 \033[0m"				
+echo "		\033[41;1;37m Minerar Yenten com CPUMiner-OPT v3.8.3.3 \033[0m"				
 sleep
 echo "\033[34mForma de uso:\033[0m"
 echo "sudo sh $0 \033[31m Endereço da Carteira\033[32m Símbolo da Criptomoeda (Sigla)\033[0m \n"
@@ -35,7 +35,7 @@ echo "\033[44;1;37m mineração.                                          \033[0
 exit 0
 fi
 
-echo "		\033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v3.8.3.3 \033[0m"	
+echo "		\033[41;1;37m Minerar Yenten com CPUMiner-OPT v3.8.3.3 \033[0m"	
 sleep 1
 echo "PARÂMETROS CONFIGURADOS:\033[01;32m $wallet $symbol\033[0m"
 sleep 1
