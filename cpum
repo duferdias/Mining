@@ -8,7 +8,7 @@ clear
 # Faça uma pequena doação para o criador e programador deste projeto!
 # Carteira BTC: 1Mzyt8ucJ1YW8JhQ6te13VWhoiEsTKhZF4
 
-#-----------
+#--------
 funreboot () {
 sudo apt-get install at -y > /dev/null
 echo -e "Eliminando PIDS"
