@@ -1,5 +1,8 @@
 #!/bin/bash
 clear
+# --------------------------------------------
+# Install Universal Script CPUMining for Linux
+# --------------------------------------------
 # Miner by: JayDDee;
 # CREATED BY: 8TH;
 # CREDITS: 8TH, Ecologyc & Devtechm;
@@ -7,6 +10,10 @@ clear
 # Modified by: Devtechm;
 # Faça uma pequena doação para o criador e programador deste projeto!
 # Carteira BTC: 1Mzyt8ucJ1YW8JhQ6te13VWhoiEsTKhZF4
+
+# Este script foi desenvolvido para execução em ambiente Linux de 64 bits.
+# Funcional nas distros Debian & Ubuntu.
+# Pode ser executado automaticamente junto com a inicialização do sistema.
 
 #--------
 funreboot () {
@@ -113,8 +120,8 @@ unset help
 #/* -----------------------------------------------*/
 #/* ----------->>> INSTALANDO MINER <<<------------*/
 #/* -----------------------------------------------*/
-echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.3.3.  \033[0m"
-echo -e "\033[44;1;37m            Ao término, a mineração iniciará automaticamente.           \033[0m"
+echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.4.  \033[0m"
+echo -e "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
 sleep 10
 clear
 
@@ -146,25 +153,21 @@ fi
 sleep 2
 clear
 
-echo -e "\033[44;1;37mBaixando CPUMiner-OPT v3.8.3.3...\033[0m"
-wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.3.3.tar.gz
+echo -e "\033[44;1;37mBaixando CPUMiner-OPT v3.8.4...\033[0m"
+wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.4.tar.gz
 sleep 2
 clear
 
-echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.3.3...\033[0m"
-tar -zxvf v3.8.3.3.tar.gz > /dev/null
-cd cpuminer-opt-3.8.3.3
+echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.4...\033[0m"
+tar -zxvf v3.8.4.tar.gz > /dev/null
+cd cpuminer-opt-3.8.4
 sleep 2
 clear
 
-echo -e "\033[44;1;37mCompilando CPUMiner-OPT v3.8.3.3...(pode demorar um pouco)\033[0m"
-make distclean || echo clean
-rm -f config.status
-./autogen.sh || echo done
-CFLAGS="-O3 -march=native -Wall" ./configure --with-curl
-make -j 4
-strip -s cpuminer
-sudo mv cpuminer /usr/local/bin/
+echo -e "\033[44;1;37mCompilando CPUMiner-OPT v3.8.4...(pode demorar um pouco)\033[0m"
+./build.sh > /dev/null
+sudo cp cpuminer /usr/local/bin/
+ln ./cpuminer ../cpuminer
 
 #/* -----------------------------------------------*/
 #/* ---------->>> INICIALIZANDO LIMIT <<<----------*/
