@@ -131,8 +131,8 @@ sleep 2
 clear
 
 echo -e "\033[44;1;37mInstalando dependências...\033[0m"
-apt-get install aptitude -y
-sudo aptitude install cpulimit -y
+apt-get install aptitude -y > /dev/null
+sudo aptitude install cpulimit -y > /dev/null
 sudo apt-get install screen -y > /dev/null
 sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev gcc autoconf make automake -y > /dev/null
 memsize=`free | awk '/Mem/ { print $2 }'`
