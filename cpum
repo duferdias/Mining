@@ -120,8 +120,8 @@ unset help
 #/* -----------------------------------------------*/
 #/* ----------->>> INSTALANDO MINER <<<------------*/
 #/* -----------------------------------------------*/
-echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.4.  \033[0m"
-echo -e "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
+echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.4.1.  \033[0m"
+echo -e "\033[44;1;37m            Ao término, a mineração iniciará automaticamente.           \033[0m"
 sleep 10
 clear
 
@@ -153,18 +153,18 @@ fi
 sleep 2
 clear
 
-echo -e "\033[44;1;37mBaixando CPUMiner-OPT v3.8.4...\033[0m"
-wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.4.tar.gz
+echo -e "\033[44;1;37mBaixando CPUMiner-OPT v3.8.4.1...\033[0m"
+wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.4.1.tar.gz
 sleep 2
 clear
 
-echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.4...\033[0m"
-tar -zxvf v3.8.4.tar.gz > /dev/null
-cd cpuminer-opt-3.8.4
+echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.4.1...\033[0m"
+tar -zxvf v3.8.4.1.tar.gz > /dev/null
+cd cpuminer-opt-3.8.4.1
 sleep 2
 clear
 
-echo -e "\033[44;1;37mCompilando CPUMiner-OPT v3.8.4...(pode demorar um pouco)\033[0m"
+echo -e "\033[44;1;37mCompilando CPUMiner-OPT v3.8.4.1...(pode demorar um pouco)\033[0m"
 ./build.sh > /dev/null
 sudo cp cpuminer /usr/local/bin/
 ln ./cpuminer ../cpuminer
