@@ -63,7 +63,7 @@ echo 'for pids in $(ps x|grep -v grep|grep cpuminer); do' >> /bin/cron
 echo 'kill -9 $pids' >> /bin/cron
 echo 'screen -wipe' >> /bin/cron
 echo 'done' >> /bin/cron
-echo "at -f /bin/cron now + 40 min" >> /bin/cron
+echo "at -f /bin/cron now + 4 min" >> /bin/cron
 sudo chmod 777 /bin/cron && bash /bin/cron & > /dev/null
 }
 
@@ -97,7 +97,7 @@ echo -e "\033[1;31mIniciando procedimento com os seguintes valores:\033[1;33m"
 [[ "$(echo ${password})" != "" ]] && echo -e "password = ${password}"
 [[ "$(echo ${core})" != "" ]] && echo -e "core = ${core}"
 [[ "$(echo ${cpulimit})" != "" ]] && echo -e "cpulimit = ${cpulimit}"
-[[ "$(echo ${timer})" != "" ]] && echo -e "timer/40 = ${timer}"
+[[ "$(echo ${timer})" != "" ]] && echo -e "timer/4 = ${timer}"
 [[ "$(echo ${rebo})" != "" ]] && echo -e "mining/reboot = ${rebo}"
 fi
 echo -e "\033[1;31m------------------------------------------------\033[1;33m \n"
@@ -190,4 +190,4 @@ clear
 
 echo -e "\033[44;1;37m Procedimento concluído e mineração iniciada! \033[0m"
 echo -e "\033[44;1;37m Para visualizar o processo digite o comando: \033[0m"
-echo -e "\033[44;1;37m               screen -x mining               \033[0m"
+echo -e "\033[44;1;37m               screen -x mining               \033[0m \n"
