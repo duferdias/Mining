@@ -8,6 +8,7 @@ then
 exit 0
 fi
 
+#-----------------
 algorithm=$1
 stratump_tcp=$2
 threads=$3
