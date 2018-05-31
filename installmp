@@ -32,9 +32,12 @@ algorithm=$1
 stratump_tcp=$2
 algo_ex=yescrypt
 strat_ex=mydomain.tk:6233
+#-----------------
 
+#-----------------
 # CPUMiner-OPT:
 version=3.8.8.1
+#-----------------
 
 if [ "$1" = ""  ] && [ "$2" = ""  ]
 then
@@ -100,12 +103,7 @@ sleep 2
 clear
 
 echo "\033[44;1;37mCompilando CPUMiner-OPT v$version...(pode demorar um pouco)\033[0m"
-make distclean || echo clean
-rm -f config.status
-./autogen.sh || echo done
-CFLAGS="-O3 -march=native -Wall" ./configure --with-curl
-make -j 4
-strip -s cpuminer
+./build.sh > /dev/null
 ln ./cpuminer ../cpuminer
 sleep 2
 clear
