@@ -37,9 +37,13 @@ algo_ex2=yescryptr16
 strat_ex2=stratum.misosi.ru:16012
 user_w_ex2=webLogin.workerName
 pass_ex2=x
+#-----------------
 
+#-----------------
 # CPUMiner-OPT:
 version=3.8.8.1
+#-----------------
+
 
 if [ "$1" = ""  ] && [ "$2" = ""  ] && [ "$3" = ""  ] && [ "$4" = ""  ]
 then
