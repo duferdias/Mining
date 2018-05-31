@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 # --------------------------------------------
-# Install Universal Script CPUMining for Linux
+#      Install Script CPUMining for Linux
 # --------------------------------------------
 # Miner by: JayDDee;
 # CREATED BY: 8TH;
@@ -15,7 +15,11 @@ clear
 # Funcional nas distros Debian & Ubuntu.
 # Pode ser executado automaticamente junto com a inicialização do sistema.
 
-#--------
+#--------------
+# CPUMiner-OPT:
+version=3.8.8.1
+#--------------
+
 funreboot () {
 sudo apt-get install at -y > /dev/null
 echo -e "Eliminando PIDS"
@@ -119,7 +123,7 @@ unset help
 #/* -----------------------------------------------*/
 #/* ----------->>> INSTALANDO MINER <<<------------*/
 #/* -----------------------------------------------*/
-echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.8.1.  \033[0m"
+echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v${version}.  \033[0m"
 echo -e "\033[44;1;37m            Ao término, a mineração iniciará automaticamente.           \033[0m"
 sleep 10
 clear
@@ -152,18 +156,18 @@ fi
 sleep 2
 clear
 
-echo -e "\033[44;1;37mBaixando CPUMiner-OPT v3.8.8.1...\033[0m"
-wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.8.1.tar.gz
+echo -e "\033[44;1;37mBaixando CPUMiner-OPT v${version}...\033[0m"
+wget -q https://github.com/JayDDee/cpuminer-opt/archive/v${version}.tar.gz
 sleep 2
 clear
 
-echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.8.1...\033[0m"
-tar -zxvf v3.8.8.1.tar.gz > /dev/null
-cd cpuminer-opt-3.8.8.1
+echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v${version}...\033[0m"
+tar -zxvf v${version}.tar.gz > /dev/null
+cd cpuminer-opt-${version}
 sleep 2
 clear
 
-echo -e "\033[44;1;37mCompilando CPUMiner-OPT v3.8.8.1...(pode demorar um pouco)\033[0m"
+echo -e "\033[44;1;37mCompilando CPUMiner-OPT v${version}...(pode demorar um pouco)\033[0m"
 ./build.sh > /dev/null
 # sudo cp cpuminer /usr/local/bin/
 ln ./cpuminer ../cpuminer
@@ -190,3 +194,5 @@ clear
 echo -e "\033[44;1;37m Procedimento concluído e mineração iniciada! \033[0m"
 echo -e "\033[44;1;37m Para visualizar o processo digite o comando: \033[0m"
 echo -e "\033[44;1;37m               screen -x mining               \033[0m \n"
+
+sudo rm -r cpum > /dev/null
