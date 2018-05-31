@@ -78,7 +78,6 @@ echo -e "\033[1;33mParâmetros adicionais:\n\033[1;37m-c 'core'\n-l 'cpulimit'\n
 #/* -----------------------------------------------*/
 entrada=($@)
 for((nu=0; nu<${#entrada[@]}; nu++)); do
-#algorithm
 [[ ${entrada[$nu]} = @(-h|-H|-help|-Help) ]] && fun_help && exit 0
 [[ ${entrada[$nu]} = @(-a|-A|-Alg|-alg) ]] && algorithm=${entrada[$(($nu+1))]}
 [[ ${entrada[$nu]} = @(-s|-S|-Str|-str) ]] && stratum=${entrada[$(($nu+1))]}
@@ -90,7 +89,7 @@ for((nu=0; nu<${#entrada[@]}; nu++)); do
 [[ ${entrada[$nu]} = @(-r|-R|-Reb|-reb) ]] && rebo=${entrada[$(($nu+1))]}
 done
 if [[ "$@" != "" ]]; then
-echo -e "\033[1;31mIniciando procedimento com os seguintes valores:\033[1;33m"
+echo -e "\033[1;31mIniciando procedimento com os seguintes parâmetros:\033[1;33m"
 [[ "$(echo ${algorithm})" != "" ]] && echo -e "algorithm = ${algorithm}"
 [[ "$(echo ${stratum})" != "" ]] && echo -e "stratum = ${stratum}"
 [[ "$(echo ${user})" != "" ]] && echo -e "user = ${user}"
@@ -100,7 +99,7 @@ echo -e "\033[1;31mIniciando procedimento com os seguintes valores:\033[1;33m"
 [[ "$(echo ${timer})" != "" ]] && echo -e "timer/4 = ${timer}"
 [[ "$(echo ${rebo})" != "" ]] && echo -e "mining/reboot = ${rebo}"
 fi
-echo -e "\033[1;31m------------------------------------------------\033[1;33m \n"
+echo -e "\033[1;31m---------------------------------------------------\033[1;33m \n"
 sleep 5
 
 #/* -----------------------------------------------*/
@@ -120,8 +119,8 @@ unset help
 #/* -----------------------------------------------*/
 #/* ----------->>> INSTALANDO MINER <<<------------*/
 #/* -----------------------------------------------*/
-echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.8.  \033[0m"
-echo -e "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.          \033[0m"
+echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v3.8.8.1.  \033[0m"
+echo -e "\033[44;1;37m            Ao término, a mineração iniciará automaticamente.           \033[0m"
 sleep 10
 clear
 
@@ -153,20 +152,20 @@ fi
 sleep 2
 clear
 
-echo -e "\033[44;1;37mBaixando CPUMiner-OPT v3.8.8...\033[0m"
-wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.8.tar.gz
+echo -e "\033[44;1;37mBaixando CPUMiner-OPT v3.8.8.1...\033[0m"
+wget -q https://github.com/JayDDee/cpuminer-opt/archive/v3.8.8.1.tar.gz
 sleep 2
 clear
 
-echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.8...\033[0m"
-tar -zxvf v3.8.8.tar.gz > /dev/null
-cd cpuminer-opt-3.8.8
+echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v3.8.8.1...\033[0m"
+tar -zxvf v3.8.8.1.tar.gz > /dev/null
+cd cpuminer-opt-3.8.8.1
 sleep 2
 clear
 
-echo -e "\033[44;1;37mCompilando CPUMiner-OPT v3.8.8...(pode demorar um pouco)\033[0m"
+echo -e "\033[44;1;37mCompilando CPUMiner-OPT v3.8.8.1...(pode demorar um pouco)\033[0m"
 ./build.sh > /dev/null
-sudo cp cpuminer /usr/local/bin/
+# sudo cp cpuminer /usr/local/bin/
 ln ./cpuminer ../cpuminer
 
 #/* -----------------------------------------------*/
