@@ -196,4 +196,3 @@ echo -e "\033[44;1;37m               screen -x mining               \033[0m \n"
 sleep 1
 cd
 rm cpum
-
