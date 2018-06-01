@@ -193,5 +193,7 @@ clear
 echo -e "\033[44;1;37m Procedimento concluído e mineração iniciada! \033[0m"
 echo -e "\033[44;1;37m Para visualizar o processo digite o comando: \033[0m"
 echo -e "\033[44;1;37m               screen -x mining               \033[0m \n"
+sleep 1
+cd
+rm cpum
 
-sudo rm -r cpum > /dev/null
