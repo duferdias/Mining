@@ -47,7 +47,7 @@ version=3.8.8.1
 
 if [ "$1" = ""  ] && [ "$2" = ""  ] && [ "$3" = ""  ] && [ "$4" = ""  ]
 then
-echo "      \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v$version \033[0m"
+echo "                 \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v$version \033[0m"
 sleep
 echo "\033[34mForma de uso:\033[0m"
 echo "sudo sh $0 \033[31m Algorítimo\033[32m Stratum e Porta\033[32m Carteira ou usuário\033[32m Senha: verif. formato na pool\033[0m \n"
@@ -62,7 +62,7 @@ echo "\033[44;1;37m mineração.                                          \033[0
 exit 0
 fi
 
-echo "      \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v$version \033[0m"	
+echo "                 \033[41;1;37m Minerar Criptomoedas com CPUMiner-OPT v$version \033[0m"	
 sleep 1
 echo "PARÂMETROS CONFIGURADOS:\033[01;32m $algorithm $stratum_tcp $user_w $password\033[0m \n"
 sleep 1
