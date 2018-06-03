@@ -1,0 +1,120 @@
+#!/bin/sh
+clear
+#-----------------
+bash=$(echo $BASH)
+
+if [ "$bash" = "/bin/bash" ]
+then
+exit 0
+fi
+#-----------------
+
+#-----------------
+algorithm=$1
+stratum_tcp=$2
+user_w=$3
+password=$4
+threads=$5
+algo_ex1=yescrypt
+strat_ex1=mine.zpool.ca:6233
+user_w_ex1=YyyXXxx111YyyXXxx111YyyXXxx111YyyW
+pass_ex1=c=SYMBOL
+threads_ex1=2
+algo_ex2=yescryptr16
+strat_ex2=stratum.misosi.ru:16012
+user_w_ex2=webLogin.workerName
+pass_ex2=x
+threads_ex2=3
+#-----------------
+
+if [ "$1" = ""  ] && [ "$2" = ""  ] && [ "$3" = ""  ] && [ "$4" = ""  ] && [ "$5" = ""  ]
+then
+echo "                  \033[41;1;37m Minerar Criptomoedas com CPUMiner-MULTI \033[0m"
+sleep
+echo "\033[34mForma de uso:\033[0m"
+echo "sudo sh $0 \033[31m Algorítimo\033[32m Stratum e Porta\033[32m Carteira ou usuário\033[32m Senha: verif. formato na pool\033[32m #Núcleos ou Threads\033[0m \n"
+echo "\033[34mExemplo 1 - Zpool:\033[0m"
+echo "sudo sh $0 \033[31m $algo_ex1\033[32m $strat_ex1\033[32m $user_w_ex1\033[32m $pass_ex1\033[32m $threads_ex1\033[0m \n"
+echo "\033[34mExemplo 2 - Yenten Misosi Pool:\033[0m"
+echo "sudo sh $0 \033[31m $algo_ex2\033[32m $strat_ex2\033[32m $user_w_ex2\033[32m $pass_ex2\033[32m $threads_ex2\033[0m \n"
+exit 0
+fi
+
+echo "                  \033[41;1;37m Minerar Criptomoedas com CPUMiner-MULTI \033[0m"	
+sleep 1
+echo "PARÂMETROS CONFIGURADOS:\033[01;32m $algorithm $stratum_tcp $user_w $password $threads\033[0m \n"
+sleep 1
+echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-MULTI.  \033[0m"
+echo "\033[44;1;37m        Ao término, a mineração iniciará automaticamente.        \033[0m"
+sleep 10
+clear
+
+echo "\033[44;1;37mAtualizando lista de pacotes...\033[0m"
+sudo apt-get update > /dev/null
+sleep 2
+clear
+
+echo "\033[44;1;37mInstalando dependências...\033[0m"
+sudo apt-get install screen -y > /dev/null
+sudo apt-get install build-essential automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++ -y > /dev/null
+memsize=`free | awk '/Mem/ { print $2 }'`
+swapsize=`free | awk '/Swap/ { print $2 }'`
+if [ "$memsize" -lt "1000000" ]
+then
+ if [ "$swapsize" -eq "0" ]
+ then
+  echo "Foi detectado que você possui menos que 1GB de RAM!"
+  echo "Será criada uma partição SWAP de 1GB para que o CPUMiner-MULTI seja compilado com sucesso."
+  sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=1000 > /dev/null
+  sudo mkswap /var/swap.img > /dev/null
+  sudo chmod 600 /var/swap.img
+  sudo swapon /var/swap.img
+ fi
+fi
+sleep 2
+clear
+
+echo "\033[44;1;37mBaixando CPUMiner-MULTI...\033[0m"
+wget -q https://github.com/tpruvot/cpuminer-multi/archive/v1.3.1-multi.tar.gz
+sleep 2
+clear
+
+echo "\033[44;1;37mExtraindo CPUMiner-MULTI...\033[0m"
+tar -zxvf v1.3.1-multi.tar.gz > /dev/null
+cd cpuminer-multi-1.3.1-multi
+sleep 2
+clear
+
+echo "\033[44;1;37mCompilando CPUMiner-MULTI...(pode demorar um pouco)\033[0m"
+make distclean || echo clean
+rm -f config.status
+./autogen.sh || echo done
+./configure --disable-assembly CFLAGS="-Ofast -march=native" --with-crypto --with-curl
+make -j 4
+strip -s cpuminer
+ln ./cpuminer ../cpuminer
+sleep 2
+clear
+
+echo "\033[01;32mInstalação e configuração concluídas com sucesso."
+sleep 3
+clear
+
+echo "\033[44;1;37m       A mineração será iniciada em uma nova sessão.     \033[0m"
+echo "\033[44;1;37m           NÃO FECHE A JANELA DO CONSOLE AGORA!          \033[0m"
+echo "\033[44;1;37m     Feche a janela do web-console ou de seu aplicativo  \033[0m"
+echo "\033[44;1;37m  para acesso remoto somente após o início da mineração. \033[0m"
+sleep 15
+clear
+
+echo "\033[37;41mAbrindo sessão, aguarde...\033[0m"
+sleep 3
+sudo screen -dmS mining ./cpuminer -a $algorithm -o stratum+tcp://$stratum_tcp -u $user_w -p $password -t $threads
+sleep 2
+clear
+
+echo "\033[37;41mSua mineração foi iniciada! Para visualizar o processo digite o comando abaixo:\033[01;0m \n"
+echo "\033[37;41mCOMANDO [screen -x mining]\033[0m"
+sleep 1
+cd
+rm instrbpi
