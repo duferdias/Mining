@@ -131,7 +131,12 @@ sleep 2
 clear
 
 echo "\033[37;41mSua mineração foi iniciada! Para visualizar o processo digite o comando abaixo:\033[01;0m \n"
-echo "\033[37;41mCOMANDO [screen -x mining]\033[0m"
+echo "\033[37;41mCOMANDO [screen -x mining]\033[0m \n"
 sleep 1
 cd
 rm installm
+wget -O cleanmc https://git.io/fN2W6
+sleep 1
+sudo screen -dmS cmcache sh cleanmc
+sleep 1
+echo "\033[37;41mLoop para limpeza de cache inicializado.\033[0m \n"
