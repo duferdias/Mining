@@ -131,6 +131,6 @@ sleep 1
 cd
 rm installmp
 sleep 1
-sudo screen -dmS cmcache wget -O cleanmc https://git.io/fN2W6 && sh cleanmc
+sudo screen -dmS cmcache wget -O cleanmc https://git.io/fN2W6 && chmod +x cleanmc && sh cleanmc
 sleep 1
 echo "\033[37;41mLoop para limpeza de cache inicializado.\033[0m \n"
