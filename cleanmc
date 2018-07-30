@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 while : ; do
   # Usa um arquivo de lock para impedir execução simultânea,
-  # caso a execução leve mais do que dez segundos.
+  # caso a execução leve muito tempo.
   if [[ ! -e /tmp/lockfile ]]; then
     touch /tmp/lockfile
     {
