@@ -6,9 +6,9 @@ while : ; do
     touch /tmp/lockfile
     {
       sync; echo 3 > /proc/sys/vm/drop_caches
-	  # sysctl -w vm.drop_caches=3
-	  rm /tmp/lockfile
-    } &  # Note o "&" para execução em background.
+      # sysctl -w vm.drop_caches=3
+      rm /tmp/lockfile
+    } & # Note o "&" para execução em background.
   fi
   sleep 60
 done
