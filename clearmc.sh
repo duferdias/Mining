@@ -10,5 +10,5 @@ while : ; do
       rm /tmp/lockfile
     } & # Note o "&" para execução em background.
   fi
-  sleep 180
+  sleep 360
 done
