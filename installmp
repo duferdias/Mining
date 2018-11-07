@@ -129,9 +129,5 @@ echo "\033[37;41mSua mineração foi iniciada! Para visualizar o processo digite
 echo "\033[37;41mCOMANDO [screen -x mining]\033[0m"
 sleep 1
 cd ..
-wget -qO clearmc.sh https://git.io/fN64v > /dev/null
-sudo screen -dmS clearmc bash clearmc.sh
 sleep 1
-echo "\033[37;41mLoop para limpeza de cache inicializado.\033[0m \n"
-sleep 1
-sudo rm installmp clearmc.sh
+sudo rm installmp
