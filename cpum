@@ -1,18 +1,21 @@
 #!/bin/bash
 clear
-# --------------------------------------------
-#      Install Script CPUMining for Ubuntu
-# --------------------------------------------
+# ----------------------------------------------
+#      Advanced CPU Mining Script for Linux
+# ----------------------------------------------
 # Miner by: JayDDee;
 # CREATED BY: 8TH;
 # CREDITS: 8TH, Ecologyc & Devtechm;
 # Project scheduled by: 8TH;
 # Modified by: Devtechm;
 # Faça uma pequena doação para o criador e programador deste projeto!
-# Carteira BTC: 1Mzyt8ucJ1YW8JhQ6te13VWhoiEsTKhZF4
+# Carteira BTC Dev1: 1Mzyt8ucJ1YW8JhQ6te13VWhoiEsTKhZF4
+# Carteira BTC Dev2: 18kcsGYAn67jh34R3cjXP4v91azp1EApxs
+
 
 # Este script foi desenvolvido para execução em ambiente Linux de 64 bits.
 # Pode ser executado automaticamente junto com a inicialização do sistema.
+# Funcional nas distros Debian e Ubuntu.
 
 #--------------
 # CPUMiner-OPT:
@@ -136,7 +139,7 @@ echo -e "\033[44;1;37mInstalando dependências...\033[0m"
 apt-get install aptitude -y > /dev/null
 sudo aptitude install cpulimit -y > /dev/null
 sudo apt-get install screen -y > /dev/null
-sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev gcc autoconf make automake -y > /dev/null
+sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev gcc autoconf make automake zlib1g-dev -y > /dev/null
 memsize=`free | awk '/Mem/ { print $2 }'`
 swapsize=`free | awk '/Swap/ { print $2 }'`
 # Quando necessário cria uma partição SWAP de 1GB para máquinas com menos de 1GB de RAM.
@@ -194,5 +197,6 @@ echo -e "\033[44;1;37m Procedimento concluído e mineração iniciada! \033[0m"
 echo -e "\033[44;1;37m Para visualizar o processo digite o comando: \033[0m"
 echo -e "\033[44;1;37m               screen -x mining               \033[0m \n"
 sleep 1
-cd
-rm cpum
+cd ..
+sleep 1
+sudo rm cpum
