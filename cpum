@@ -12,7 +12,6 @@ clear
 # Carteira BTC Dev1: 1Mzyt8ucJ1YW8JhQ6te13VWhoiEsTKhZF4
 # Carteira BTC Dev2: 18kcsGYAn67jh34R3cjXP4v91azp1EApxs
 
-
 # Este script foi desenvolvido para execução em ambiente Linux de 64 bits.
 # Pode ser executado automaticamente junto com a inicialização do sistema.
 # Funcional nas distros Debian e Ubuntu.
@@ -40,7 +39,7 @@ echo "#!/bin/bash" > /bin/cron
 if [[ ${cpulimit} -gt "0" ]]; then
 echo "sudo screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}" >> /bin/cron
 fi
-echo "sudo screen -dmS mining cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${user}${pass}${core}" >> /bin/cron
+echo "sudo screen -dmS mining ./cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${user}${pass}${core}" >> /bin/cron
 echo "sleep ${rebo}m" >> /bin/cron
 echo "at -f /bin/cron now + 2 min" >> /bin/cron
 echo "sudo reboot" >> /bin/cron
@@ -63,7 +62,7 @@ echo "#!/bin/bash" > /bin/cron
 if [[ ${cpulimit} -gt "0" ]]; then
 echo "sudo screen -dmS cpu cpulimit -e cpuminer -l ${cpulimit}" >> /bin/cron
 fi
-echo "sudo screen -dmS mining cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${user}${pass}${core}" >> /bin/cron
+echo "sudo screen -dmS mining ./cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${user}${pass}${core}" >> /bin/cron
 echo "sleep ${timer}m" >> /bin/cron
 echo 'for pids in $(ps x|grep -v grep|grep cpuminer); do' >> /bin/cron
 echo 'kill -9 $pids' >> /bin/cron
@@ -188,7 +187,7 @@ funreboot
 elif [[ ${timer} -gt "0" ]]; then
 funtimer
 else
-sudo screen -dmS mining cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${user}${pass}${core}
+sudo screen -dmS mining ./cpuminer -a ${algo} -o stratum+tcp://${str_tcp}${user}${pass}${core}
 fi
 sleep 2
 clear
