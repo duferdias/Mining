@@ -12,7 +12,7 @@ clear
 
 # Com o script "sproxy-ytn" é possível instalar, configurar e executar
 # o stratum proxy com o arquivo de configuração stratum-proxy-yescryptr16
-# para receber mineradores de YENTEN e redirecioná-los para a ytn.misosi.ru.
+# para receber mineradores de YENTEN e redirecioná-los para ytn.firstpool.ru.
 
 # -------------
 echo "\033[44;1;37mLiberando portas no firewall iptables...aguarde...\033[0m"
@@ -20,6 +20,7 @@ sleep 5
 sudo iptables -A INPUT -p tcp --dport 3331 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 3333 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 3334 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 3344 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 3433 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 6233 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 8233 -j ACCEPT
