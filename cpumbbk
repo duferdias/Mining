@@ -125,7 +125,7 @@ unset help
 #/* ----------->>> INSTALANDO MINER <<<------------*/
 #/* -----------------------------------------------*/
 echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v${version}.  \033[0m"
-echo -e "\033[44;1;37m            Ao término, a mineração iniciará automaticamente.              \033[0m"
+echo -e "\033[44;1;37m            Ao término, a mineração iniciará automaticamente.           \033[0m"
 sleep 10
 clear
 
@@ -158,12 +158,12 @@ sleep 2
 clear
 
 echo -e "\033[44;1;37mBaixando CPUMiner-OPT v${version}...\033[0m"
-wget -q https://github.com/bubasik/cpuminer-opt-yespower/archive/v${version}.tar.gz
+wget -q https://github.com/bubasik/cpuminer-opt-yespower/archive/${version}.tar.gz
 sleep 2
 clear
 
 echo -e "\033[44;1;37mExtraindo CPUMiner-OPT v${version}...\033[0m"
-tar -zxvf v${version}.tar.gz > /dev/null
+tar -zxvf ${version}.tar.gz > /dev/null
 cd cpuminer-opt-yespower-${version}
 sleep 2
 clear
