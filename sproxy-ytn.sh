@@ -11,8 +11,8 @@ clear
 # e Yescrypt.
 
 # Com o script "sproxy-ytn" é possível instalar, configurar e executar
-# o stratum proxy com o arquivo de configuração stratum-proxy-yescryptr16
-# para receber mineradores de YENTEN e redirecioná-los para ytn.firstpool.ru.
+# o stratum proxy com o arquivo de configuração stratum-proxy-yespowerr16
+# para receber mineradores de YENTEN e redirecioná-los para yenten.luckypool.org.
 
 # -------------
 echo "\033[44;1;37mLiberando portas no firewall iptables...aguarde...\033[0m"
@@ -20,13 +20,13 @@ sleep 5
 sudo iptables -A INPUT -p tcp --dport 3331 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 3333 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 3334 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 3344 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 3433 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 6233 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 6234 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 6333 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 6534 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 8233 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 8888 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 16011 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 16012 -j ACCEPT
 sleep 1
 clear
 echo "\033[44;1;37mPortas liberadas com sucesso.\033[0m"
@@ -82,15 +82,15 @@ cd stratum-proxy-0.8.1.1
 mvn clean package
 cd target
 
-wget https://github.com/duferdias/stratum-proxy/releases/download/v0.8.1.1/stratum-proxy-yescryptr16.conf -O stratum-proxy-yescryptr16.conf
+wget https://github.com/duferdias/stratum-proxy/releases/download/v0.8.1.1/stratum-proxy-yespowerr16.conf -O stratum-proxy-yespowerr16.conf
 
 # Convert format dos2unix
-# awk '{printf "%s\r\n", $0}' stratum-proxy-yescryptr16.conf
+# awk '{printf "%s\r\n", $0}' stratum-proxy-yespowerr16.conf
 # Insere as variáveis
-sed -i "s/\"user\" :.*/\"user\" \: \"${WLogin_WName}\"\,/" stratum-proxy-yescryptr16.conf
-sed -i "s/\"password\" :.*/\"password\" \: \"${passwordMiner}\"\,/" stratum-proxy-yescryptr16.conf
-sed -i "s/\"apiUser\":.*/\"apiUser\"\: \"${usuario}\"\,/" stratum-proxy-yescryptr16.conf
-sed -i "s/\"apiPassword\":.*/\"apiPassword\"\: \"${senha}\"\,/" stratum-proxy-yescryptr16.conf
+sed -i "s/\"user\" :.*/\"user\" \: \"${WLogin_WName}\"\,/" stratum-proxy-yespowerr16.conf
+sed -i "s/\"password\" :.*/\"password\" \: \"${passwordMiner}\"\,/" stratum-proxy-yespowerr16.conf
+sed -i "s/\"apiUser\":.*/\"apiUser\"\: \"${usuario}\"\,/" stratum-proxy-yespowerr16.conf
+sed -i "s/\"apiPassword\":.*/\"apiPassword\"\: \"${senha}\"\,/" stratum-proxy-yespowerr16.conf
 
 echo "\033[01;32mInstalação e configuração concluídas com sucesso."
 sleep 3
@@ -109,7 +109,7 @@ clear
 # [ Run Stratum Proxy ]
 echo "\033[37;41mAbrindo sessão, aguarde...\033[0m "
 sleep 3
-sudo screen -dmS sproxy java -jar stratum-proxy-0.8.1-malthraxcrypto.jar --conf-file=stratum-proxy-yescryptr16.conf
+sudo screen -dmS sproxy java -jar stratum-proxy-0.8.1-malthraxcrypto.jar --conf-file=stratum-proxy-yespowerr16.conf
 sleep 2
 clear
 echo "\033[37;41mStratum Proxy em execução. Para visualizar digite o comando abaixo:\033[01;0m \n"
