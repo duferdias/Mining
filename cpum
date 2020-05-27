@@ -124,8 +124,8 @@ unset help
 #/* -----------------------------------------------*/
 #/* ----------->>> INSTALANDO MINER <<<------------*/
 #/* -----------------------------------------------*/
-echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v${version}.  \033[0m"
-echo -e "\033[44;1;37m            Ao término, a mineração iniciará automaticamente.              \033[0m"
+echo -e "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v$version.  \033[0m"
+echo -e "\033[44;1;37m            Ao término, a mineração iniciará automaticamente.          \033[0m"
 sleep 10
 clear
 
