@@ -62,7 +62,7 @@ sleep 1
 echo "PARÂMETROS CONFIGURADOS:\033[01;32m $algorithm $stratump_tcp\033[0m \n"
 sleep 1
 echo "\033[44;1;37m  Este script irá baixar, compilar e instalar o CPUMiner-OPT v$version.  \033[0m"
-echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.             \033[0m"
+echo "\033[44;1;37m           Ao término, a mineração iniciará automaticamente.           \033[0m"
 sleep 10
 clear
 
