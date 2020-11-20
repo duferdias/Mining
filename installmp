@@ -36,7 +36,7 @@ strat_ex=mydomain.tk:6233
 
 #-----------------
 # CPUMiner-OPT:
-version=3.14.1
+version=3.15.2
 #-----------------
 
 if [ "$1" = ""  ] && [ "$2" = ""  ]
