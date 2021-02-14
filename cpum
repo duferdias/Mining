@@ -5,12 +5,11 @@ clear
 # ----------------------------------------------
 # Miner by: JayDDee;
 # CREATED BY: 8TH;
-# CREDITS: 8TH, Ecologyc & Devtechm;
+# CREDITS: 8TH, Ecologyc & Duferdias;
 # Project scheduled by: 8TH;
-# Modified by: Devtechm;
+# Modified by: Duferdias;
 # Faça uma pequena doação para o criador e programador deste projeto!
-# Carteira BTC Dev1: 1Mzyt8ucJ1YW8JhQ6te13VWhoiEsTKhZF4
-# Carteira BTC Dev2: 18kcsGYAn67jh34R3cjXP4v91azp1EApxs
+# Carteira BTC: 18kcsGYAn67jh34R3cjXP4v91azp1EApxs
 
 # Este script foi desenvolvido para execução em ambiente Linux de 64 bits.
 # Pode ser executado automaticamente junto com a inicialização do sistema.
@@ -18,7 +17,7 @@ clear
 
 #--------------
 # CPUMiner-OPT:
-version=3.15.2
+version=3.15.6
 #--------------
 
 funreboot () {
