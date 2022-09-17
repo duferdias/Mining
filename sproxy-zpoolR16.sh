@@ -69,8 +69,8 @@ sudo apt-get install build-essential libssl-dev libcurl4-openssl-dev libjansson-
 sudo apt-get install autotools-dev -y
 sudo apt-get install libcurl3 libcurl4-gnutls-dev -y
 sudo apt-get install software-properties-common -y
-sudo apt-get install default-jre -y
-sudo apt-get install default-jdk -y
+sudo apt-get install openjdk-8-jre -y
+sudo apt-get install openjdk-8-jdk -y
 sudo apt-get install nodejs -y
 sudo apt-get install maven -y
 
