@@ -5,7 +5,7 @@ clear
 # Miner por JayDDee
 
 # Contribua fazendo uma pequena doação!
-# BTC:  18kcsGYAn67jh34R3cjXP4v91azp1EApxs
+# BTC:  16EmV9hCCsaBDkga66oQsjbC1h589EEhr5
 # DOGE: DBPkvRnTtHS84tSTyramL4CsYQcirqudhR
 
 # Este script foi desenvolvido para execução em ambiente Linux de 64 bits:
@@ -41,9 +41,8 @@ pass_ex2=x
 
 #-----------------
 # CPUMiner-OPT:
-version=3.15.6
+version=3.20.2
 #-----------------
-
 
 if [ "$1" = ""  ] && [ "$2" = ""  ] && [ "$3" = ""  ] && [ "$4" = ""  ]
 then
